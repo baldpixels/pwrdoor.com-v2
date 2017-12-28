@@ -1,2 +1,2 @@
-# pwr_door.com
+# pwrdoor.com
 PWR DOOR media
