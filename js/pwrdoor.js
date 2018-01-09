@@ -2,6 +2,8 @@
 //global
 
 //variables
+  var fps = 24;
+    var frameTime = (1000 / 24);
 
 $(document).ready(function(){
 //local
@@ -11,6 +13,14 @@ $(document).ready(function(){
     var portWidth;
 
 //on load
+  updateDebug();
+  loop();
+
+//main loop
+  function loop(){
+    updateDebug();
+  }
+  setTimeout(loop, frameTime)
 
 //event listeners
   //resize event
@@ -34,6 +44,15 @@ $(document).ready(function(){
     });
 
 //functions
+  function updatePort(){
+    portWidth = 1.333*portHeight;
+    $("#port").css("width", portWidth + "px");
+  }
+
+  function updateDebug(){
+    $("#debug").html("portal height: " + portHeight + "px </br> portal width: " + portWidth + "px");
+  }
+
   //pwrClick moves stuff around
   function pwrClick(){
   }
