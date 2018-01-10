@@ -3,12 +3,18 @@
 
 	<head>
 		<meta charset="UTF-8">
-
-		<link rel="icon" href="images/logo.png">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Vlad Pixels">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
 
     <!--style links-->
+			<link rel="icon" href="images/logo.png">
       <link rel="stylesheet" type="text/css" href="css/layout.css">
     <!--end style links-->
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="js/jquery-3.2.1.min.js"></script>
 
 		<title>
 			PWR DOOR PRODUCES
@@ -17,24 +23,23 @@
 
 	<body>
 		<div id="container">
-			<div id="port"></div>
-			
-			<div id="debug"></div>
+			<img id="BG" src="" />
 		</div>
 
-		<img id="BG_wide" src=""></img>
+		<!--all interactie content is contained within the port-->
+		<div id="port">
+			<img id="logo" src="images/logo.png" alt="pwrdoor" />
 
-		<img id="logo" src="images/logo.png" alt="pwrdoor.com"/>
+			<div id="vlad"></div>
 
-		<div id="vlad"></div>
+			<div id="content">
+				<div id="debug"></div>
+			</div>
+		</div>
 
-
-
-    <!--script links-->
-      <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-      <script src="js/jquery-3.2.1.min.js"></script>
-      <script src="js/pwrdoor.js"></script>
-    <!--end script links-->
+		<!--script links-->
+			<script src="js/pwrdoor.js"></script>
+		<!--end script links-->
 	</body>
 
 </html>

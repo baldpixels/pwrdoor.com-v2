@@ -4,15 +4,16 @@
 //variables
   var fps = 24;
     var frameTime = (1000 / 24);
+  var intro = true;
 
 $(document).ready(function(){
 //local
 
 //variables
-  var portHeight = $("#port").height();
-    var portWidth;
 
 //on load
+  $("#content").hide();
+  $("#BG").hide();
   updateDebug();
   loop();
 
@@ -25,13 +26,7 @@ $(document).ready(function(){
 //event listeners
   //resize event
   $(window).resize(function() {
-    portHeight = $("#port").height();
-    updatePort();
-    if ($(window).width() < 768) {
-        //switch to mobile
-    } else {
-       //back to web dashboard
-    }
+
   });
 
   //click and hover events
@@ -44,17 +39,23 @@ $(document).ready(function(){
     });
 
 //functions
-  function updatePort(){
-    portWidth = 1.333*portHeight;
-    $("#port").css("width", portWidth + "px");
-  }
-
   function updateDebug(){
-    $("#debug").html("portal height: " + portHeight + "px </br> portal width: " + portWidth + "px");
+    $("#debug").html("<p>debug</p>");
   }
 
-  //pwrClick moves stuff around
   function pwrClick(){
+    if(intro){
+      $("#logo").animate({top: "200px"}, 500);
+      setTimeout(intro(), 500);
+    }
+  }
+
+  function intro(){
+    $("#vlad").fadeIn(500);
+    $("#BG").attr("src", "images/BG/wide.jpg");
+    $("#BG").fadeIn(500);
+
+    intro = false;
   }
 
 
