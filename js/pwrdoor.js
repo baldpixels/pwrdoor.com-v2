@@ -134,6 +134,13 @@ $(document).ready(function(){
       $("#M_hover").hide();
       $("#G_hover").hide();
       $("#P_hover").hide();
+      $("#M").hide();
+      $("#G").hide();
+      $("#P").hide();
+
+      $("#M").delay(250).fadeIn(1000);
+      $("#G").delay(250).fadeIn(1000);
+      $("#P").delay(250).fadeIn(1000);
 
       $("#debug").html("<p>intro complete</p>");
     });
@@ -167,10 +174,10 @@ $(document).ready(function(){
   function MClick(){
     $("#debug").html("<p>Movies</p>")
     clearContent();
-    
+
     for(var i=0; i<25; i++){
       $("#content").append("<p id='movie"+i+"'>Movie "+i+"</p>")
-      $("#movie"+i).hide().delay(500).fadeIn(500).delay(500);
+      $("#movie"+i).hide().delay(500).fadeIn(500);
     }
   }
 
@@ -180,7 +187,7 @@ $(document).ready(function(){
 
     for(var i=0; i<25; i++){
       $("#content").append("<p id='graphic"+i+"'>Graphic "+i+"</p>")
-      $("#graphic"+i).hide().delay(500).fadeIn(500).delay(500);
+      $("#graphic"+i).hide().delay(500).fadeIn(500);
     }
   }
 
@@ -190,7 +197,7 @@ $(document).ready(function(){
 
     for(var i=0; i<25; i++){
       $("#content").append("<p id='photo"+i+"'>Photo "+i+"</p>")
-      $("#photo"+i).hide().delay(500).fadeIn(500).delay(500);
+      $("#photo"+i).hide().delay(500).fadeIn(500);
     }
   }
 
