@@ -103,7 +103,7 @@ $(document).ready(function(){
     $("#port").append("<img id='pistonL' src='images/pistonL.png' alt='' />");
     $("#port").append("<img id='pistonR' src='images/pistonR.png' alt='' />");
 
-    $("#vlad").animate({bottom: "0px"}, 625, "swing");
+    $("#vlad").animate({bottom: "-10px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
     $("#dash").animate({top: "0px"}, 625, "easeOutBack", function(){
@@ -166,17 +166,36 @@ $(document).ready(function(){
 
   function MClick(){
     $("#debug").html("<p>Movies</p>")
+    clearContent();
+    
     for(var i=0; i<25; i++){
-      $("#content").append("<p>Movie "+i+"</p>");
+      $("#content").append("<p id='movie"+i+"'>Movie "+i+"</p>")
+      $("#movie"+i).hide().delay(500).fadeIn(500).delay(500);
     }
   }
 
   function GClick(){
     $("#debug").html("<p>Graphics</p>")
+    clearContent();
+
+    for(var i=0; i<25; i++){
+      $("#content").append("<p id='graphic"+i+"'>Graphic "+i+"</p>")
+      $("#graphic"+i).hide().delay(500).fadeIn(500).delay(500);
+    }
   }
 
   function PClick(){
     $("#debug").html("<p>Photos</p>")
+    clearContent();
+
+    for(var i=0; i<25; i++){
+      $("#content").append("<p id='photo"+i+"'>Photo "+i+"</p>")
+      $("#photo"+i).hide().delay(500).fadeIn(500).delay(500);
+    }
+  }
+
+  function clearContent(){
+    $("#content").html("");
   }
 
 
