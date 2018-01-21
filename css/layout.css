@@ -16,22 +16,6 @@ body {
   padding: 0;
 }
 
-#container {
-  z-index: -1;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: #000;
-}
-
-#BG {
-  z-index: 0;
-  position: fixed;
-  right: 50%;
-  transform: translate(+50%, 0);
-  height: 100%;
-}
-
 #port {
   z-index: +1;
   position: fixed;
@@ -41,7 +25,7 @@ body {
 }
 
 #logo {
-  z-index: +3;
+  z-index: +4;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -50,21 +34,21 @@ body {
 }
 
 #dashboard {
-  z-index: +1;
+  z-index: +3;
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
 #dash {
-  z-index: +2;
+  z-index: +3;
   position: absolute;
   top: -100%;
   width: 100%;
 }
 
 #vlad {
-  z-index: +3;
+  z-index: +4;
   position: absolute;
   bottom: -100%;
   right: 50%;
@@ -72,29 +56,64 @@ body {
   width: 72.2%;
 }
 
-#left, #right {
-  z-index: +3;
+#left, #right, #left_hover, #right_hover {
+  z-index: +4;
   position: absolute;
-  width: 18.8%;
+  top: 4.2%;
+  width: 19%;
 }
 
-#right {
-	top: 4.5%;
+#right, #right_hover {
   right: 13.95%;
 }
 
-#left {
-	top: 4.4%;
+#left, #left_hover {
   left: 15.1%;
+}
+
+#brights, #brights_hover {
+  z-index: +4;
+  position: absolute;
+  top: 3.3%;
+  left: 39.9%;
+  width: 22%;
+}
+
+#M, #M_hover {
+  z-index: +4;
+  position: absolute;
+  top: 27.2%;
+  left: 43.3%;
+  width: 16%;
+}
+
+#G, #G_hover {
+  z-index: +4;
+  position: absolute;
+  top: 35.5%;
+  left: 43.3%;
+  width: 16%;
+}
+
+#P, #P_hover {
+  z-index: +4;
+  position: absolute;
+  top: 43.8%;
+  left: 43.3%;
+  width: 16%;
 }
 
 #content {
   z-index: +2;
   position: absolute;
   top: 30.3%;
+  left: 50%;
   width: 70%;
-  height: 1080px;
-  overflow: scroll;
+  height: 69.7%;
+  transform: translate(-50%, 0);
+  overflow-y: scroll;
+  text-align: center;
+  color: green;
 }
 
 #debug {
