@@ -100,9 +100,13 @@ $(document).ready(function(){
     //append dashboard items
     $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
     $("#dashboard").append("<img id='vlad' src='images/vlad.png' alt='' />");
+    $("#port").append("<img id='pistonL' src='images/pistonL.png' alt='' />");
+    $("#port").append("<img id='pistonR' src='images/pistonR.png' alt='' />");
 
     $("#vlad").animate({bottom: "0px"}, 625, "swing");
-    $("#dash").animate({top: "0px"}, 1250, "easeOutBounce", function(){
+    $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
+    $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
+    $("#dash").animate({top: "0px"}, 625, "easeOutBack", function(){
       $("#logo").fadeOut(100);
 
       $("#dashboard").append("<img id='left' src='images/left.png' alt='' />");
@@ -139,18 +143,24 @@ $(document).ready(function(){
   function leftClick(){
     $("#debug").html("<p>leftClick</p>")
     $("#dashboard").animate({left: "-33%"}, 500, "swing");
+    $("#pistonL").animate({right: "+131%"}, 500, "swing");
+    $("#pistonR").animate({left: "+61%"}, 500, "swing");
     $("#content").animate({left: "66%"}, 500, "swing");
   }
 
   function rightClick(){
     $("#debug").html("<p>rightClick</p>")
     $("#dashboard").animate({left: "+33%"}, 500, "swing");
+    $("#pistonL").animate({right: "+61%"}, 500, "swing");
+    $("#pistonR").animate({left: "+131%"}, 500, "swing");
     $("#content").animate({left: "33%"}, 500, "swing");
   }
 
   function brightsClick(){
     $("#debug").html("<p>brightsClick</p>")
     $("#dashboard").animate({left: "0px"}, 500, "swing");
+    $("#pistonL").animate({right: "+90%"}, 500, "swing");
+    $("#pistonR").animate({left: "+90%"}, 500, "swing");
     $("#content").animate({left: "50%"}, 500, "swing");
   }
 
