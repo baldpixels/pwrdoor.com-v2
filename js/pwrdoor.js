@@ -99,7 +99,7 @@ $(document).ready(function(){
   function introAnimation(){
     //append dashboard items
     $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
-    $("#dashboard").append("<img id='vlad' src='images/vlad.png' alt='' />");
+    $("#dashboard").append("<img id='vlad' src='images/vladimir.png' alt='' />");
     $("#port").append("<img id='pistonL' src='images/pistonL.png' alt='' />");
     $("#port").append("<img id='pistonR' src='images/pistonR.png' alt='' />");
 
