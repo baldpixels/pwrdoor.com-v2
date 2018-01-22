@@ -45,6 +45,10 @@ $(document).ready(function(){
 
   $("#dashboard").on('click', '#P', PClick);
 
+  $("#dashboard").on('click', '#C', CClick);
+
+  $("#dashboard").on('click', '#Q', QClick);
+
   $("#dashboard").on('click', '#hazard_up', hazardUpClick);
 
   $("#dashboard").on('click', '#hazard_down', hazardDownClick);
@@ -63,12 +67,12 @@ $(document).ready(function(){
     if(intro){
       //load dashboard
       $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
-      $("#port").append("<img id='vlad' src='images/vladimir.png' alt='' />");
+      $("#port").append("<img id='passenger' src='images/passenger.png' alt='' />");
       $("#port").append("<img id='pistonL' src='images/pistonL.png' alt='' />");
       $("#port").append("<img id='pistonR' src='images/pistonR.png' alt='' />");
       //move logo up
       //$("#logo").css("z-index", "-1")
-      $("#logo").animate({top: "-400px"}, 750, "swing", function(){
+      $("#logo").animate({top: "-200px"}, 750, "swing", function(){
         introAnimation();
       });
       intro = false;
@@ -76,7 +80,7 @@ $(document).ready(function(){
   }
 
   function introAnimation(){
-    $("#vlad").animate({bottom: "-10px"}, 625, "swing");
+    $("#passenger").animate({bottom: "-10px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
     $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
@@ -103,6 +107,12 @@ $(document).ready(function(){
       //P
       $("#dashboard").append("<img id='P' src='images/P.png' alt='' />");
       $("#dashboard").append("<img id='P_hover' src='images/P_hover.png' alt='' />");
+      //C
+      $("#dashboard").append("<img id='C' src='images/C.png' alt='' />");
+      $("#dashboard").append("<img id='C_hover' src='images/C_hover.png' alt='' />");
+      //Q
+      $("#dashboard").append("<img id='Q' src='images/Q.png' alt='' />");
+      $("#dashboard").append("<img id='Q_hover' src='images/Q_hover.png' alt='' />");
       //hazard down
       $("#dashboard").append("<img id='hazard_down' src='images/hazard_down.png' alt='' />");
       $("#dashboard").append("<img id='hazard_down_hover' src='images/hazard_down_hover.png' alt='' />");
@@ -110,19 +120,29 @@ $(document).ready(function(){
       $("#left_hover").hide();
       $("#right_hover").hide();
       $("#brights_hover").hide();
+      $("#hazard_up_hover").hide();
       $("#M_hover").hide();
       $("#G_hover").hide();
       $("#P_hover").hide();
-      $("#hazard_up_hover").hide();
+      $("#C_hover").hide();
+      $("#Q_hover").hide();
       $("#hazard_down_hover").hide();
       //hide nav for fade-in
+      $("#hazard_up").hide()
       $("#M").hide();
       $("#G").hide();
       $("#P").hide();
+      $("#C").hide();
+      $("#Q").hide();
+      $("#hazard_down").hide()
       //nav fade-in
+      $("#hazard_up").delay(250).fadeIn(1000);
       $("#M").delay(250).fadeIn(1000);
       $("#G").delay(250).fadeIn(1000);
       $("#P").delay(250).fadeIn(1000);
+      $("#C").delay(250).fadeIn(1000);
+      $("#Q").delay(250).fadeIn(1000);
+      $("#hazard_down").delay(250).fadeIn(1000);
       //debug
       $("#debug").html("<p>intro complete</p>");
     });
@@ -135,7 +155,7 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "+131%"}, 500, "swing");
     $("#pistonR").animate({left: "+61%"}, 500, "swing");
     $("#content").animate({left: "66%"}, 500, "swing");
-    $("#vlad").animate({right: "33%"}, 500, "swing");
+    $("#passenger").animate({right: "33%"}, 500, "swing");
     $("#left_hover").show().delay(500).fadeOut(100);
   }
 
@@ -145,7 +165,7 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "+61%"}, 500, "swing");
     $("#pistonR").animate({left: "+131%"}, 500, "swing");
     $("#content").animate({left: "33%"}, 500, "swing");
-    $("#vlad").animate({right: "66%"}, 500, "swing");
+    $("#passenger").animate({right: "66%"}, 500, "swing");
     $("#right_hover").show().delay(500).fadeOut(100);
   }
 
@@ -155,7 +175,7 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "+90%"}, 500, "swing");
     $("#pistonR").animate({left: "+90%"}, 500, "swing");
     $("#content").animate({left: "50%"}, 500, "swing");
-    $("#vlad").animate({right: "50%"}, 500, "swing");
+    $("#passenger").animate({right: "50%"}, 500, "swing");
     $("#brights_hover").show().delay(500).fadeOut(100);
   }
 
@@ -192,12 +212,30 @@ $(document).ready(function(){
     $("#P_hover").show();
   }
 
+  function CClick(){
+    $("#debug").html("<p>Code</p>")
+    clearContent();
+    for(var i=0; i<25; i++){
+      $("#content").append("<p id='code"+i+"'>Code "+i+"</p>")
+      $("#code"+i).hide().delay(500).fadeIn(500);
+    }
+    clearHovers();
+    $("#C_hover").show();
+  }
+
+  function QClick(){
+    $("#debug").html("<p>?</p>")
+    clearContent();
+    clearHovers();
+    $("#Q_hover").show();
+  }
+
   function hazardUpClick(){
     $("#debug").html("<p>hazardUp</p>")
     if(!dashUp){
       $("#hazard_up_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "-68%"}, 500, "swing");
-      $("#vlad").animate({bottom: "-8%"}, 500, "swing");
+      $("#passenger").animate({bottom: "-8%"}, 500, "swing");
       $("#pistonL").animate({top: "-68%"}, 500, "swing");
       $("#pistonR").animate({top: "-68%"}, 500, "swing");
       dashUp = true;
@@ -208,7 +246,7 @@ $(document).ready(function(){
     if(dashUp){
       $("#hazard_down_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "0px"}, 500, "easeOutBack");
-      $("#vlad").animate({bottom: "-10px"}, 500, "swing");
+      $("#passenger").animate({bottom: "-10px"}, 500, "swing");
       $("#pistonL").animate({top: "0px"}, 500, "easeOutBack");
       $("#pistonR").animate({top: "0px"}, 500, "easeOutBack");
       $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
@@ -220,6 +258,8 @@ $(document).ready(function(){
     $("#M_hover").hide();
     $("#G_hover").hide();
     $("#P_hover").hide();
+    $("#C_hover").hide();
+    $("#Q_hover").hide();
   }
 
   function clearContent(){

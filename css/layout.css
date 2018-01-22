@@ -11,7 +11,7 @@ a {
 }
 
 body {
-  background-color: #000;
+  background-color: #140517;
   margin: 0;
   padding: 0;
 }
@@ -62,7 +62,7 @@ body {
   left: 90%;
 }
 
-#vlad {
+#passenger {
   z-index: +5;
   position: absolute;
   bottom: -100%;
@@ -113,23 +113,39 @@ body {
   z-index: +5;
   position: absolute;
   top: 27.2%;
-  left: 43.3%;
+  left: 43.4%;
   width: 16%;
 }
 
 #G, #G_hover {
   z-index: +5;
   position: absolute;
-  top: 35.5%;
-  left: 43.3%;
+  top: 35.7%;
+  left: 43.4%;
   width: 16%;
 }
 
 #P, #P_hover {
   z-index: +5;
   position: absolute;
-  top: 43.8%;
-  left: 43.3%;
+  top: 43.9%;
+  left: 43.4%;
+  width: 16%;
+}
+
+#C, #C_hover {
+  z-index: +5;
+  position: absolute;
+  top: 52.5%;
+  left: 43.4%;
+  width: 16%;
+}
+
+#Q, #Q_hover {
+  z-index: +5;
+  position: absolute;
+  top: 60.8%;
+  left: 43.4%;
   width: 16%;
 }
 
