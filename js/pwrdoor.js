@@ -32,69 +32,21 @@ $(document).ready(function(){
       this.src = "images/logo.png";
     });
 
-  $("#dashboard").on('click', '#left_hover', leftClick);
-    $("#dashboard").on('mouseover', '#left', function(){
-      $("#left_hover").show();
-    });
-    $("#dashboard").on('mouseout', '#left_hover', function(){
-      $("#left_hover").hide();
-    });
+  $("#dashboard").on('click', '#left', leftClick);
 
-  $("#dashboard").on('click', '#right_hover', rightClick);
-    $("#dashboard").on('mouseover', '#right', function(){
-      $("#right_hover").show();
-    });
-    $("#dashboard").on('mouseout', '#right_hover', function(){
-      $("#right_hover").hide();
-    });
+  $("#dashboard").on('click', '#right', rightClick);
 
-  $("#dashboard").on('click', '#brights_hover', brightsClick);
-    $("#dashboard").on('mouseover', '#brights', function(){
-      $("#brights_hover").show();
-    });
-    $("#dashboard").on('mouseout', '#brights_hover', function(){
-      $("#brights_hover").hide();
-    });
+  $("#dashboard").on('click', '#brights', brightsClick);
 
-    $("#dashboard").on('click', '#M_hover', MClick);
-      $("#dashboard").on('mouseover', '#M', function(){
-        $("#M_hover").show();
-      });
-      $("#dashboard").on('mouseout', '#M_hover', function(){
-        $("#M_hover").hide();
-      });
+  $("#dashboard").on('click', '#M', MClick);
 
-    $("#dashboard").on('click', '#G_hover', GClick);
-      $("#dashboard").on('mouseover', '#G', function(){
-        $("#G_hover").show();
-      });
-      $("#dashboard").on('mouseout', '#G_hover', function(){
-        $("#G_hover").hide();
-      });
+  $("#dashboard").on('click', '#G', GClick);
 
-    $("#dashboard").on('click', '#P_hover', PClick);
-      $("#dashboard").on('mouseover', '#P', function(){
-        $("#P_hover").show();
-      });
-      $("#dashboard").on('mouseout', '#P_hover', function(){
-        $("#P_hover").hide();
-      });
+  $("#dashboard").on('click', '#P', PClick);
 
-    $("#dashboard").on('click', '#hazard_up_hover', hazardUpClick);
-      $("#dashboard").on('mouseover', '#hazard_up', function(){
-        $("#hazard_up_hover").show();
-      });
-      $("#dashboard").on('mouseout', '#hazard_up_hover', function(){
-        $("#hazard_up_hover").hide();
-      });
+  $("#dashboard").on('click', '#hazard_up', hazardUpClick);
 
-    $("#dashboard").on('click', '#hazard_down_hover', hazardDownClick);
-      $("#dashboard").on('mouseover', '#hazard_down', function(){
-        $("#hazard_down_hover").show();
-      });
-      $("#dashboard").on('mouseout', '#hazard_down_hover', function(){
-        $("#hazard_down_hover").hide();
-      });
+  $("#dashboard").on('click', '#hazard_down', hazardDownClick);
 
 //functions
   function updateDebug(){
@@ -159,6 +111,7 @@ $(document).ready(function(){
       $("#P_hover").hide();
       $("#hazard_up_hover").hide();
       $("#hazard_down_hover").hide();
+
       $("#hazard_up").hide();
       $("#M").hide();
       $("#G").hide();
@@ -182,6 +135,7 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "+131%"}, 500, "swing");
     $("#pistonR").animate({left: "+61%"}, 500, "swing");
     $("#content").animate({left: "66%"}, 500, "swing");
+    $("#left_hover").show().delay(500).fadeOut(100);
   }
 
   function rightClick(){
@@ -190,6 +144,7 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "+61%"}, 500, "swing");
     $("#pistonR").animate({left: "+131%"}, 500, "swing");
     $("#content").animate({left: "33%"}, 500, "swing");
+    $("#right_hover").show().delay(500).fadeOut(100);
   }
 
   function brightsClick(){
@@ -198,6 +153,7 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "+90%"}, 500, "swing");
     $("#pistonR").animate({left: "+90%"}, 500, "swing");
     $("#content").animate({left: "50%"}, 500, "swing");
+    $("#brights_hover").show().delay(500).fadeOut(100);
   }
 
   function MClick(){
@@ -208,6 +164,9 @@ $(document).ready(function(){
       $("#content").append("<p id='movie"+i+"'>Movie "+i+"</p>")
       $("#movie"+i).hide().delay(500).fadeIn(500);
     }
+
+    clearHovers();
+    $("#M_hover").show();
   }
 
   function GClick(){
@@ -218,6 +177,9 @@ $(document).ready(function(){
       $("#content").append("<p id='graphic"+i+"'>Graphic "+i+"</p>")
       $("#graphic"+i).hide().delay(500).fadeIn(500);
     }
+
+    clearHovers();
+    $("#G_hover").show();
   }
 
   function PClick(){
@@ -228,15 +190,15 @@ $(document).ready(function(){
       $("#content").append("<p id='photo"+i+"'>Photo "+i+"</p>")
       $("#photo"+i).hide().delay(500).fadeIn(500);
     }
-  }
 
-  function clearContent(){
-    $("#content").html("");
+    clearHovers();
+    $("#P_hover").show();
   }
 
   function hazardUpClick(){
     $("#debug").html("<p>hazardUp</p>")
     if(!dashUp){
+      $("#hazard_up_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "-68%"}, 500, "swing");
       $("#pistonL").animate({top: "-68%"}, 500, "swing");
       $("#pistonR").animate({top: "-68%"}, 500, "swing");
@@ -246,6 +208,7 @@ $(document).ready(function(){
 
   function hazardDownClick(){
     if(dashUp){
+      $("#hazard_down_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "0px"}, 500, "swing");
       $("#pistonL").animate({top: "0px"}, 500, "swing");
       $("#pistonR").animate({top: "0px"}, 500, "swing");
@@ -253,5 +216,14 @@ $(document).ready(function(){
     }
   }
 
+  function clearHovers(){
+    $("#M_hover").hide();
+    $("#G_hover").hide();
+    $("#P_hover").hide();
+  }
+
+  function clearContent(){
+    $("#content").html("");
+  }
 
 });
