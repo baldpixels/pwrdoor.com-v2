@@ -4,6 +4,7 @@
 //variables
   var fps = 24;
     var frameTime = (1000 / 24);
+  var dashUp = false;
 
 $(document).ready(function(){
 //local
@@ -79,6 +80,22 @@ $(document).ready(function(){
         $("#P_hover").hide();
       });
 
+    $("#dashboard").on('click', '#hazard_up_hover', hazardUpClick);
+      $("#dashboard").on('mouseover', '#hazard_up', function(){
+        $("#hazard_up_hover").show();
+      });
+      $("#dashboard").on('mouseout', '#hazard_up_hover', function(){
+        $("#hazard_up_hover").hide();
+      });
+
+    $("#dashboard").on('click', '#hazard_down_hover', hazardDownClick);
+      $("#dashboard").on('mouseover', '#hazard_down', function(){
+        $("#hazard_down_hover").show();
+      });
+      $("#dashboard").on('mouseout', '#hazard_down_hover', function(){
+        $("#hazard_down_hover").hide();
+      });
+
 //functions
   function updateDebug(){
     $("#debug").html("<p>debug</p>");
@@ -90,6 +107,12 @@ $(document).ready(function(){
   }
 
   function pwrClick(){
+    //load dashboard
+    $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
+    $("#dashboard").append("<img id='vlad' src='images/vladimir.png' alt='' />");
+    $("#port").append("<img id='pistonL' src='images/pistonL.png' alt='' />");
+    $("#port").append("<img id='pistonR' src='images/pistonR.png' alt='' />");
+    //move logo up
     $("#logo").css("z-index", "-1")
     $("#logo").animate({top: "112px", width: "225px"}, 750, "swing", function(){
       introAnimation();
@@ -97,12 +120,6 @@ $(document).ready(function(){
   }
 
   function introAnimation(){
-    //append dashboard items
-    $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
-    $("#dashboard").append("<img id='vlad' src='images/vladimir.png' alt='' />");
-    $("#port").append("<img id='pistonL' src='images/pistonL.png' alt='' />");
-    $("#port").append("<img id='pistonR' src='images/pistonR.png' alt='' />");
-
     $("#vlad").animate({bottom: "-10px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
@@ -118,6 +135,9 @@ $(document).ready(function(){
       $("#dashboard").append("<img id='brights' src='images/brights.png' alt='' />");
       $("#dashboard").append("<img id='brights_hover' src='images/brights_hover.png' alt='' />");
 
+      $("#dashboard").append("<img id='hazard_up' src='images/hazard_up.png' alt='' />");
+      $("#dashboard").append("<img id='hazard_up_hover' src='images/hazard_up_hover.png' alt='' />");
+
       $("#dashboard").append("<img id='M' src='images/M.png' alt='' />");
       $("#dashboard").append("<img id='M_hover' src='images/M_hover.png' alt='' />");
 
@@ -127,6 +147,9 @@ $(document).ready(function(){
       $("#dashboard").append("<img id='P' src='images/P.png' alt='' />");
       $("#dashboard").append("<img id='P_hover' src='images/P_hover.png' alt='' />");
 
+      $("#dashboard").append("<img id='hazard_down' src='images/hazard_down.png' alt='' />");
+      $("#dashboard").append("<img id='hazard_down_hover' src='images/hazard_down_hover.png' alt='' />");
+
 
       $("#left_hover").hide();
       $("#right_hover").hide();
@@ -134,13 +157,19 @@ $(document).ready(function(){
       $("#M_hover").hide();
       $("#G_hover").hide();
       $("#P_hover").hide();
+      $("#hazard_up_hover").hide();
+      $("#hazard_down_hover").hide();
+      $("#hazard_up").hide();
       $("#M").hide();
       $("#G").hide();
       $("#P").hide();
+      $("#hazard_down").hide();
 
+      $("#hazard_up").delay(250).fadeIn(1000);
       $("#M").delay(250).fadeIn(1000);
       $("#G").delay(250).fadeIn(1000);
       $("#P").delay(250).fadeIn(1000);
+      $("#hazard_down").delay(250).fadeIn(1000);
 
       $("#debug").html("<p>intro complete</p>");
     });
@@ -203,6 +232,25 @@ $(document).ready(function(){
 
   function clearContent(){
     $("#content").html("");
+  }
+
+  function hazardUpClick(){
+    $("#debug").html("<p>hazardUp</p>")
+    if(!dashUp){
+      $("#dashboard").animate({top: "-68%"}, 500, "swing");
+      $("#pistonL").animate({top: "-68%"}, 500, "swing");
+      $("#pistonR").animate({top: "-68%"}, 500, "swing");
+      dashUp = true;
+    }
+  }
+
+  function hazardDownClick(){
+    if(dashUp){
+      $("#dashboard").animate({top: "0px"}, 500, "swing");
+      $("#pistonL").animate({top: "0px"}, 500, "swing");
+      $("#pistonR").animate({top: "0px"}, 500, "swing");
+      dashUp = false;
+    }
   }
 
 

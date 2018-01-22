@@ -94,6 +94,21 @@ body {
   width: 22%;
 }
 
+#hazard_up, #hazard_up_hover, #hazard_down, #hazard_down_hover {
+  z-index: +5;
+  position: absolute;
+  left: 44.2%;
+  width: 14.4%;
+}
+
+#hazard_up, #hazard_up_hover {
+  top: 19.5%;
+}
+
+#hazard_down, #hazard_down_hover {
+  top: 69%;
+}
+
 #M, #M_hover {
   z-index: +5;
   position: absolute;
