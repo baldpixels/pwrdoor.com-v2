@@ -7,6 +7,14 @@
   var dashUp = false;
   var intro = true;
 
+  var movieLinks = [
+    'https://player.vimeo.com/video/173084329',
+    'https://player.vimeo.com/video/177589535',
+    'https://player.vimeo.com/video/214244680',
+    'https://player.vimeo.com/video/251344926',
+    'https://player.vimeo.com/video/251346464'
+  ];
+
 $(document).ready(function(){
 //local
 
@@ -182,9 +190,11 @@ $(document).ready(function(){
   function MClick(){
     $("#debug").html("<p>Movies</p>")
     clearContent();
-    for(var i=0; i<25; i++){
-      $("#content").append("<p id='movie"+i+"'>Movie "+i+"</p>")
+    for(var i=movieLinks.length-1; i>=0; i--){
+      $("#content").append("<iframe class='movieScreen' id='movie" + i + "' src='" + movieLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+      $("#content").append("<p class='movieCaption' id='caption" + i + "'>" + movieLinks[i] + "</p>");
       $("#movie"+i).hide().delay(500).fadeIn(500);
+      $("#caption"+i).hide().delay(500).fadeIn(500);
     }
     clearHovers();
     $("#M_hover").show();
@@ -252,6 +262,10 @@ $(document).ready(function(){
       $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
       dashUp = false;
     }
+  }
+
+  function passengerText(text){
+
   }
 
   function clearHovers(){

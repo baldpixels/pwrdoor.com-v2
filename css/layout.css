@@ -158,8 +158,23 @@ body {
   height: 69.7%;
   transform: translate(-50%, 0);
   overflow-y: scroll;
+  overflow-x: visible;
   text-align: center;
   color: green;
+}
+
+.movieScreen {
+  width: 100%;
+  border: none;
+  margin: 20px 0 0 0;
+}
+
+.movieCaption {
+  width: 100%;
+  border: none;
+  padding: 0 5px 5px 5px;
+  font-size: 12px;
+  font-family: Helvetica;
 }
 
 #debug {
