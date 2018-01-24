@@ -16,7 +16,7 @@
   ];
 
   var graphicLinks = [
-    'Ace_eyes_close.jpg',
+    'Ace_eyes_closed.jpg',
     'bonsai_logo.png',
     'columbia_airport_billboard.jpg',
     'ComEd_dashboard_mockup.png',
@@ -80,6 +80,7 @@ $(document).ready(function(){
 
 //on load
   updatePort();
+  $("#fullScreen").hide();
   //load dashboard
   $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
   $("#port").append("<img id='passenger' src='images/passenger.png' alt='' />");
@@ -120,6 +121,12 @@ $(document).ready(function(){
   $("#dashboard").on('click', '#hazard_up', hazardUpClick);
 
   $("#dashboard").on('click', '#hazard_down', hazardDownClick);
+
+  $("#content").on('click', '.photoFrame', fullScreenPhoto);
+
+  $("#content").on('click', '.graphicCanvas', fullScreenGraphic);
+
+  $("body").on('click', '#fullScreen', fullScreenOff);
 
 //functions
   function updateDebug(){
@@ -319,6 +326,25 @@ $(document).ready(function(){
 
   function passengerText(text){
 
+  }
+
+  function fullScreenPhoto(){
+    var photoSrc = $(this).closest('img').attr('src');
+    $("#fullScreen").fadeIn(500);
+    $("#fullScreen img").attr("src", photoSrc)
+    $("#fullScreen").animate({top: "0px"}, 500, "swing");
+  }
+
+  function fullScreenGraphic(){
+    var graphicSrc = $(this).closest('img').attr('src');
+    $("#fullScreen").fadeIn(500);
+    $("#fullScreen img").attr("src", graphicSrc)
+    $("#fullScreen").animate({top: "0px"}, 500, "swing");
+  }
+
+  function fullScreenOff(){
+    $("#fullScreen").animate({top: "-100%"}, 500, "swing");
+    $("#fullScreen").fadeOut(500);
   }
 
   function clearHovers(){
