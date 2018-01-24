@@ -8,11 +8,11 @@
   var intro = true;
 
   var movieLinks = [
-    'https://player.vimeo.com/video/173084329',
-    'https://player.vimeo.com/video/177589535',
-    'https://player.vimeo.com/video/214244680',
-    'https://player.vimeo.com/video/251344926',
-    'https://player.vimeo.com/video/251346464'
+    ['https://player.vimeo.com/video/173084329', 'What We Want', 'Part 1 of 2. I own literally none of this media.'],
+    ['https://player.vimeo.com/video/177589535', 'livin', 'Part 2 of 2. I own literally none of this media.'],
+    ['https://player.vimeo.com/video/214244680', 'Out of Place', 'A small adventure tale across the desert, mountains, and stars -- dedicated to the National Park Service'],
+    ['https://player.vimeo.com/video/251344926', 'Ventus', "Follow the wind and water of the Colorado Front Range. <br><br> Here's why Denver has some crazy weather patterns: <a href='http://www.theweatherprediction.com/weatherpapers/013/' target='_blank'>theweatherprediction.com/weatherpapers/013/</a> <br><br> Submitted to 'la semaine du son' video competition: <a href='https://www.facebook.com/concourslasemaineduson/?hc_ref=ARTjB8RYwLvBVbWxO-OkM3CA7oINdkD3TpJkexEVOIjjWrzObH7fEvdNWE1onDVnzV8&fref=nf&pnref=story' target='_blank'>facebook.com/concourslasemaineduson/</a>"],
+    ['https://player.vimeo.com/video/251346464', 'Fernweh', "Sometimes you think you're exactly where you want to be. <br><br> CMF Jury Award: <a href='https://www.campusmoviefest.com/movies/60033-fernweh' target='_blank'>campusmoviefest.com/movies/60033-fernweh</a>"],
   ];
 
   var graphicLinks = [
@@ -68,7 +68,8 @@
   ];
 
   var codeLinks = [
-    'http://www.pwrdoor.com'
+    'http://www.pwrdoor.com',
+    'http://github.com/baldpixels'
   ];
 
 $(document).ready(function(){
@@ -249,11 +250,13 @@ $(document).ready(function(){
   function MClick(){
     clearContent();
     for(var i=movieLinks.length-1; i>=0; i--){
+      $("#content").append("<p class='movieTitle' id='title" + i + "'>" + movieLinks[i][1] + "</p>");
       $("#content").append("<div class='movieScreen' id='movieScreen"+i+"'></div>");
-      $("#movieScreen"+i).append("<iframe id='movie" + i + "' src='" + movieLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-      $("#content").append("<p class='movieCaption' id='caption" + i + "'>" + movieLinks[i] + "</p>");
+      $("#movieScreen"+i).append("<iframe id='movie" + i + "' src='" + movieLinks[i][0] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+      $("#content").append("<p class='movieCaption' id='caption" + i + "'>" + movieLinks[i][2] + "</p>");
       $("#movie"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
+      $("#title"+i).hide().delay(500).fadeIn(500);
     }
     $("#content").append("<br>");
     $("#content").append("<br>");
@@ -263,45 +266,71 @@ $(document).ready(function(){
 
   function GClick(){
     clearContent();
-    for(var i=graphicLinks.length-1; i>=0; i--){
-      $("#content").append("<div class='graphicCanvas' id='graphicCanvas"+i+"'></div>");
-      $("#graphicCanvas"+i).append("<img ='graphic" + i + "' src='graphics/" + graphicLinks[i] + "' />");
-      $("#content").append("<p class='graphicCaption' id='caption" + i + "'>" + graphicLinks[i] + "</p>");
-      $("#graphic"+i).hide().delay(500).fadeIn(500);
-      $("#caption"+i).hide().delay(500).fadeIn(500);
-    }
-    $("#content").append("<br>");
-    $("#content").append("<br>");
     clearHovers();
     $("#G_hover").show();
+    //optimized loading
+    function preload(index) {
+        if (index > 0) {
+          var $img = $("<img id='graphic" + index + "' src='graphics/" + graphicLinks[index] + "' />");
+          $("#content").append("<div class='graphicCanvas' id='graphicCanvas"+index+"'></div>");
+          $("#graphicCanvas"+index).append($img);
+          $("#content").append("<p class='graphicCaption' id='caption" + index + "'>" + graphicLinks[index] + "</p>");
+          $("#graphic"+index).hide().fadeIn(500);
+          $("#caption"+index).hide().fadeIn(500);
+          //once this image is loaded, load the next one
+          $img.on('load', function() {
+              preload(index-1);
+          });
+        }
+    }
+    preload(graphicLinks.length-1);
+    //buffer at the bottom
+    $("#content").append("<br>");
+    $("#content").append("<br>");
+    $("#content").append("<br>");
   }
 
   function PClick(){
     clearContent();
-    for(var i=photoLinks.length-1; i>=0; i--){
-      $("#content").append("<div class='photoFrame' id='photoFrame"+i+"'></div>");
-      $("#photoFrame"+i).append("<img id='photo" + i + "' src='photos/" + photoLinks[i] + "' />");
-      $("#content").append("<p class='photoCaption' id='caption" + i + "'>" + photoLinks[i] + "</p>");
-      $("#photo"+i).hide().delay(500).fadeIn(500);
-      $("#caption"+i).hide().delay(500).fadeIn(500);
-    }
-    $("#content").append("<br>");
-    $("#content").append("<br>");
     clearHovers();
     $("#P_hover").show();
+    //optimized loading
+    function preload(index) {
+        if (index > 0) {
+          var $img = $("<img id='photo" + index + "' src='photos/" + photoLinks[index] + "' />");
+          $("#content").append("<div class='photoFrame' id='photoFrame"+index+"'></div>");
+          $("#photoFrame"+index).append($img);
+          $("#content").append("<p class='photoCaption' id='caption" + index + "'>" + photoLinks[index] + "</p>");
+          $("#photo"+index).hide().fadeIn(500);
+          $("#caption"+index).hide().fadeIn(500);
+          //once this image is loaded, load the next one
+          $img.on('load', function() {
+              preload(index-1);
+          });
+        }
+    }
+    preload(photoLinks.length-1);
+    //buffer at the bottom
+    $("#content").append("<br>");
+    $("#content").append("<br>");
+    $("#content").append("<br>");
   }
 
   function CClick(){
     clearContent();
+    clearHovers();
+    $("#C_hover").show();
     for(var i=codeLinks.length-1; i>=0; i--){
       $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
       $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-      $("#content").append("<p class='codeCaption' id='caption" + i + "'>" + codeLinks[i] + "</p>");
+      $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i]+"' target='_blank'>" + codeLinks[i] + "</a></p>");
       $("#code"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
     }
-    clearHovers();
-    $("#C_hover").show();
+    //buffer at the bottom
+    $("#content").append("<br>");
+    $("#content").append("<br>");
+    $("#content").append("<br>");
   }
 
   function QClick(){
@@ -343,6 +372,7 @@ $(document).ready(function(){
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", photoSrc)
     //is image too small?
+    //this still doesn't work...
     if($(window).height() > $(this).naturalHeight){
       $("#fullScreen img").attr('height', $(this).naturalHeight);
     }
@@ -354,6 +384,7 @@ $(document).ready(function(){
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", graphicSrc)
     //is image too small?
+    //this still doesn't work...
     if($(window).height() > $(this).naturalHeight){
       $("#fullScreen img").attr('height', $(this).naturalHeight);
     }

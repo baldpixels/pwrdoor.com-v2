@@ -193,7 +193,7 @@ body {
   margin: 0;
 }
 
-.movieCaption, .graphicCaption, .photoCaption {
+.movieCaption, .graphicCaption, .photoCaption, .codeCaption {
   width: 100%;
   border: 5px outset rgba(0, 0, 0, .8);
   padding: 5px;
@@ -201,7 +201,24 @@ body {
   font-size: 12px;
   color: #e6e6e6;
   font-family: Helvetica;
-  margin-bottom: 40px;
+  margin: 5px 0 40px 0;
+}
+
+.movieTitle, .graphicTitle, .photoTitle, .codeTitle {
+  width: 100%;
+  border: 5px outset rgba(0, 0, 0, .8);
+  padding: 5px;
+  background-color: rgba(0, 0, 0, .8);
+  font-size: 24px;
+  color: #e6e6e6;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: Helvetica;
+  margin: 0 0 5px 0;
+}
+
+.movieCaption a, .graphicCaption a, .photoCaption a, .codeCaption a {
+  color: #00cc00;
 }
 
 .graphicCanvas {
@@ -241,17 +258,6 @@ body {
   width: 90%;
   border: none;
   margin: 0;
-}
-
-.codeCaption {
-  width: 100%;
-  border: 5px outset rgba(0, 0, 0, .8);
-  padding: 5px;
-  background-color: rgba(0, 0, 0, .8);
-  font-size: 12px;
-  color: #e6e6e6;
-  font-family: Helvetica;
-  margin-bottom: 40px;
 }
 
 #debug {
