@@ -122,9 +122,9 @@ $(document).ready(function(){
 
   $("#dashboard").on('click', '#hazard_down', hazardDownClick);
 
-  $("#content").on('click', '.photoFrame', fullScreenPhoto);
+  $("#content").on('click', '.photoFrame img', fullScreenPhoto);
 
-  $("#content").on('click', '.graphicCanvas', fullScreenGraphic);
+  $("#content").on('click', '.graphicCanvas img', fullScreenGraphic);
 
   $("body").on('click', '#fullScreen', fullScreenOff);
 
@@ -249,11 +249,14 @@ $(document).ready(function(){
   function MClick(){
     clearContent();
     for(var i=movieLinks.length-1; i>=0; i--){
-      $("#content").append("<iframe class='movieScreen' id='movie" + i + "' src='" + movieLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+      $("#content").append("<div class='movieScreen' id='movieScreen"+i+"'></div>");
+      $("#movieScreen"+i).append("<iframe id='movie" + i + "' src='" + movieLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
       $("#content").append("<p class='movieCaption' id='caption" + i + "'>" + movieLinks[i] + "</p>");
       $("#movie"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
     }
+    $("#content").append("<br>");
+    $("#content").append("<br>");
     clearHovers();
     $("#M_hover").show();
   }
@@ -261,11 +264,14 @@ $(document).ready(function(){
   function GClick(){
     clearContent();
     for(var i=graphicLinks.length-1; i>=0; i--){
-      $("#content").append("<img class='graphicCanvas' id='graphic" + i + "' src='graphics/" + graphicLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen />");
+      $("#content").append("<div class='graphicCanvas' id='graphicCanvas"+i+"'></div>");
+      $("#graphicCanvas"+i).append("<img ='graphic" + i + "' src='graphics/" + graphicLinks[i] + "' />");
       $("#content").append("<p class='graphicCaption' id='caption" + i + "'>" + graphicLinks[i] + "</p>");
       $("#graphic"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
     }
+    $("#content").append("<br>");
+    $("#content").append("<br>");
     clearHovers();
     $("#G_hover").show();
   }
@@ -273,11 +279,14 @@ $(document).ready(function(){
   function PClick(){
     clearContent();
     for(var i=photoLinks.length-1; i>=0; i--){
-      $("#content").append("<img class='photoFrame' id='photo" + i + "' src='photos/" + photoLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen />");
+      $("#content").append("<div class='photoFrame' id='photoFrame"+i+"'></div>");
+      $("#photoFrame"+i).append("<img id='photo" + i + "' src='photos/" + photoLinks[i] + "' />");
       $("#content").append("<p class='photoCaption' id='caption" + i + "'>" + photoLinks[i] + "</p>");
       $("#photo"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
     }
+    $("#content").append("<br>");
+    $("#content").append("<br>");
     clearHovers();
     $("#P_hover").show();
   }
@@ -285,7 +294,8 @@ $(document).ready(function(){
   function CClick(){
     clearContent();
     for(var i=codeLinks.length-1; i>=0; i--){
-      $("#content").append("<iframe class='codeBox' id='code" + i + "' src='" + codeLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+      $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
+      $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
       $("#content").append("<p class='codeCaption' id='caption" + i + "'>" + codeLinks[i] + "</p>");
       $("#code"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
@@ -329,16 +339,24 @@ $(document).ready(function(){
   }
 
   function fullScreenPhoto(){
-    var photoSrc = $(this).closest('img').attr('src');
+    var photoSrc = $(this).attr('src');
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", photoSrc)
+    //is image too small?
+    if($(window).height() > $(this).naturalHeight){
+      $("#fullScreen img").attr('height', $(this).naturalHeight);
+    }
     $("#fullScreen").animate({top: "0px"}, 500, "swing");
   }
 
   function fullScreenGraphic(){
-    var graphicSrc = $(this).closest('img').attr('src');
+    var graphicSrc = $(this).attr('src');
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", graphicSrc)
+    //is image too small?
+    if($(window).height() > $(this).naturalHeight){
+      $("#fullScreen img").attr('height', $(this).naturalHeight);
+    }
     $("#fullScreen").animate({top: "0px"}, 500, "swing");
   }
 
