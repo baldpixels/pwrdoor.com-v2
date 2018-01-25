@@ -23,3 +23,22 @@ body {
   transform: translate(+50%, 0);
   height: 100%;
 }
+
+#connor {
+  z-index: +2;
+  position: absolute;
+  right: 50%;
+  transform: translate(+50%, 0);
+  width: 100%;
+}
+
+.statement {
+  z-index: +2;
+  position: absolute;
+  bottom: 5%;
+  right: 50%;
+  transform: translate(+50%, 0);
+  width: 100%;
+  font-family: Helvetica;
+  text-size: 12px;
+}

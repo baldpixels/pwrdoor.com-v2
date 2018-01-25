@@ -142,6 +142,7 @@ $(document).ready(function(){
   function pwrClick(){
     if(intro){
       //move logo up
+      $("#logo").attr('src', "images/logo_hover.png");
       $("#logo").animate({top: "-200px"}, 750, "swing", function(){
         introAnimation();
       });
@@ -150,6 +151,7 @@ $(document).ready(function(){
   }
 
   function introAnimation(){
+    $("#logo").attr('src', "images/logo.png");
     $("#passenger").animate({bottom: "-10px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
@@ -249,6 +251,9 @@ $(document).ready(function(){
 
   function MClick(){
     clearContent();
+    clearHovers();
+    $("#M_hover").show();
+    $("#content").append("<p id='contentHeader'>Movies</p>");
     for(var i=movieLinks.length-1; i>=0; i--){
       $("#content").append("<p class='movieTitle' id='title" + i + "'>" + movieLinks[i][1] + "</p>");
       $("#content").append("<div class='movieScreen' id='movieScreen"+i+"'></div>");
@@ -257,20 +262,23 @@ $(document).ready(function(){
       $("#movie"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
       $("#title"+i).hide().delay(500).fadeIn(500);
+      //buffer at the bottom
+      if(i==0){
+        $("#content").append("<br>");
+        $("#content").append("<br>");
+        $("#content").append("<br>");
+      }
     }
-    $("#content").append("<br>");
-    $("#content").append("<br>");
-    clearHovers();
-    $("#M_hover").show();
   }
 
   function GClick(){
     clearContent();
     clearHovers();
     $("#G_hover").show();
+    $("#content").append("<p id='contentHeader'>Graphics</p>");
     //optimized loading
     function preload(index) {
-        if (index > 0) {
+        if (index >= 0) {
           var $img = $("<img id='graphic" + index + "' src='graphics/" + graphicLinks[index] + "' />");
           $("#content").append("<div class='graphicCanvas' id='graphicCanvas"+index+"'></div>");
           $("#graphicCanvas"+index).append($img);
@@ -281,22 +289,25 @@ $(document).ready(function(){
           $img.on('load', function() {
               preload(index-1);
           });
+          //buffer at the bottom
+          if(index==0){
+            $("#content").append("<br>");
+            $("#content").append("<br>");
+            $("#content").append("<br>");
+          }
         }
     }
     preload(graphicLinks.length-1);
-    //buffer at the bottom
-    $("#content").append("<br>");
-    $("#content").append("<br>");
-    $("#content").append("<br>");
   }
 
   function PClick(){
     clearContent();
     clearHovers();
     $("#P_hover").show();
+    $("#content").append("<p id='contentHeader'>Photos</p>");
     //optimized loading
     function preload(index) {
-        if (index > 0) {
+        if (index >= 0) {
           var $img = $("<img id='photo" + index + "' src='photos/" + photoLinks[index] + "' />");
           $("#content").append("<div class='photoFrame' id='photoFrame"+index+"'></div>");
           $("#photoFrame"+index).append($img);
@@ -307,30 +318,35 @@ $(document).ready(function(){
           $img.on('load', function() {
               preload(index-1);
           });
+          //buffer at the bottom
+          if(index==0){
+            $("#content").append("<br>");
+            $("#content").append("<br>");
+            $("#content").append("<br>");
+          }
         }
     }
     preload(photoLinks.length-1);
-    //buffer at the bottom
-    $("#content").append("<br>");
-    $("#content").append("<br>");
-    $("#content").append("<br>");
   }
 
   function CClick(){
     clearContent();
     clearHovers();
     $("#C_hover").show();
+    $("#content").append("<p id='contentHeader'>Code</p>");
     for(var i=codeLinks.length-1; i>=0; i--){
       $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
       $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
       $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i]+"' target='_blank'>" + codeLinks[i] + "</a></p>");
       $("#code"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
+      //buffer at the bottom
+      if(i==0){
+        $("#content").append("<br>");
+        $("#content").append("<br>");
+        $("#content").append("<br>");
+      }
     }
-    //buffer at the bottom
-    $("#content").append("<br>");
-    $("#content").append("<br>");
-    $("#content").append("<br>");
   }
 
   function QClick(){

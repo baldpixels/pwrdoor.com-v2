@@ -172,7 +172,7 @@ body {
   position: absolute;
   top: 22%;
   left: 50%;
-  width: 70%;
+  width: 67%;
   height: 69.7%;
   transform: translate(-50%, 0);
   overflow-y: scroll;
@@ -180,21 +180,36 @@ body {
   color: green;
 }
 
-.movieScreen {
-  width: 100%;
+#contentHeader {
+  width: 95%;
   border: 5px outset rgba(0, 0, 0, .8);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
+  font-size: 48px;
+  color: #e6e6e6;
+  text-transform: lowercase;
+  font-weight: bold;
+  font-family: Helvetica;
+  margin: 0 0 40px 0;
+  text-align: center;
+}
+
+.movieScreen {
+  width: 95%;
+  border: 5px outset rgba(0, 0, 0, .8);
+  padding: 5px;
+  background-color: rgba(0, 0, 0, .8);
+  text-align: center;
 }
 
 .movieScreen iframe {
-  width: 90%;
+  width: 95%;
   border: none;
   margin: 0;
 }
 
 .movieCaption, .graphicCaption, .photoCaption, .codeCaption {
-  width: 100%;
+  width: 95%;
   border: 5px outset rgba(0, 0, 0, .8);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
@@ -205,7 +220,7 @@ body {
 }
 
 .movieTitle, .graphicTitle, .photoTitle, .codeTitle {
-  width: 100%;
+  width: 95%;
   border: 5px outset rgba(0, 0, 0, .8);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
@@ -222,40 +237,43 @@ body {
 }
 
 .graphicCanvas {
-  width: 100%;
+  width: 95%;
   border: 5px outset rgba(0, 0, 0, .8);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
+  text-align: center;
 }
 
 .graphicCanvas img {
-  width: 90%;
+  width: 95%;
   border: none;
   margin: 0;
 }
 
 .photoFrame {
-  width: 100%;
+  width: 95%;
   border: 5px outset rgba(0, 0, 0, .8);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
+  text-align: center;
 }
 
 .photoFrame img {
-  width: 90%;
+  width: 95%;
   border: none;
   margin: 0;
 }
 
 .codeBox {
-  width: 100%;
+  width: 95%;
   border: 5px outset rgba(0, 0, 0, .8);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
+  text-align: center;
 }
 
 .codeBox iframe {
-  width: 90%;
+  width: 95%;
   border: none;
   margin: 0;
 }
