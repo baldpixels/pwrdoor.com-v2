@@ -221,31 +221,34 @@ $(document).ready(function(){
 
   function leftClick(){
     $("#dashboard").animate({left: "-33%"}, 500, "swing");
-    $("#pistonL").animate({right: "+131%"}, 500, "swing");
-    $("#pistonR").animate({left: "+61%"}, 500, "swing");
+    $("#pistonL").animate({right: "131%"}, 500, "swing");
+    $("#pistonR").animate({left: "61%"}, 500, "swing");
     $("#content").animate({left: "66%"}, 500, "swing");
     $("#content").css("z-index", "+6");
     $("#passenger").animate({right: "33%"}, 500, "swing");
+    $("#logo").animate({left: "16.6%"}, 500, "swing");
     $("#left_hover").show().delay(500).fadeOut(100);
   }
 
   function rightClick(){
-    $("#dashboard").animate({left: "+33%"}, 500, "swing");
-    $("#pistonL").animate({right: "+61%"}, 500, "swing");
-    $("#pistonR").animate({left: "+131%"}, 500, "swing");
+    $("#dashboard").animate({left: "33%"}, 500, "swing");
+    $("#pistonL").animate({right: "61%"}, 500, "swing");
+    $("#pistonR").animate({left: "131%"}, 500, "swing");
     $("#content").animate({left: "33%"}, 500, "swing");
     $("#content").css("z-index", "+6");
     $("#passenger").animate({right: "66%"}, 500, "swing");
+    $("#logo").animate({left: "83.3%"}, 500, "swing");
     $("#right_hover").show().delay(500).fadeOut(100);
   }
 
   function brightsClick(){
     $("#dashboard").animate({left: "0px"}, 500, "swing");
-    $("#pistonL").animate({right: "+90%"}, 500, "swing");
-    $("#pistonR").animate({left: "+90%"}, 500, "swing");
+    $("#pistonL").animate({right: "90%"}, 500, "swing");
+    $("#pistonR").animate({left: "90%"}, 500, "swing");
     $("#content").animate({left: "50%"}, 500, "swing");
     $("#content").css("z-index", "+2");
     $("#passenger").animate({right: "50%"}, 500, "swing");
+    $("#logo").animate({left: "50%"}, 500, "swing");
     $("#brights_hover").show().delay(500).fadeOut(100);
   }
 
@@ -276,6 +279,7 @@ $(document).ready(function(){
     clearHovers();
     $("#G_hover").show();
     $("#content").append("<p id='contentHeader'>Graphics</p>");
+    fullScreenTip();
     //optimized loading
     function preload(index) {
         if (index >= 0) {
@@ -305,6 +309,7 @@ $(document).ready(function(){
     clearHovers();
     $("#P_hover").show();
     $("#content").append("<p id='contentHeader'>Photos</p>");
+    fullScreenTip();
     //optimized loading
     function preload(index) {
         if (index >= 0) {
@@ -353,7 +358,7 @@ $(document).ready(function(){
     clearContent();
     clearHovers();
     $("#Q_hover").show();
-    window.open('profile.html','_blank');
+    window.open('profiles.html','_blank');
   }
 
   function hazardUpClick(){
@@ -383,6 +388,11 @@ $(document).ready(function(){
 
   }
 
+  function fullScreenTip(){
+    $("#content").append("<p id='fullScreenTip'>(click image for fullscreen)</p>");
+    $("#fullScreenTip").hide().delay(250).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).delay(3000).fadeOut(1000);
+  }
+
   function fullScreenPhoto(){
     var photoSrc = $(this).attr('src');
     $("#fullScreen").fadeIn(500);
@@ -392,6 +402,7 @@ $(document).ready(function(){
     if($(window).height() > $(this).naturalHeight){
       $("#fullScreen img").attr('height', $(this).naturalHeight);
     }
+    fullScreenExitTip()
     $("#fullScreen").animate({top: "0px"}, 500, "swing");
   }
 
@@ -404,12 +415,22 @@ $(document).ready(function(){
     if($(window).height() > $(this).naturalHeight){
       $("#fullScreen img").attr('height', $(this).naturalHeight);
     }
+    fullScreenExitTip();
     $("#fullScreen").animate({top: "0px"}, 500, "swing");
   }
 
   function fullScreenOff(){
     $("#fullScreen").animate({top: "-100%"}, 500, "swing");
     $("#fullScreen").fadeOut(500);
+    $("#fullScreenExitTip").fadeOut(500);
+  }
+
+  function fullScreenExitTip(){
+    if(!$("#fullScreen").find("#fullScreenExitTip").length){
+      $("#fullScreen").append("<p id='fullScreenExitTip'>(click image to return)</p>");
+      $("#fullScreen").hide();
+    }
+    $("#fullScreenExitTip").fadeIn(500).fadeOut(500).fadeIn(500);
   }
 
   function clearHovers(){
