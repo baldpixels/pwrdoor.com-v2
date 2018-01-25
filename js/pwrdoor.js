@@ -338,7 +338,7 @@ $(document).ready(function(){
     clearContent();
     clearHovers();
     $("#C_hover").show();
-    $("#content").append("<p id='contentHeader'>Code</p>");
+    $("#content").append("<p id='contentHeader'>&lt;Code&gt;</p>");
     for(var i=codeLinks.length-1; i>=0; i--){
       $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
       $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
@@ -429,8 +429,9 @@ $(document).ready(function(){
     if(!$("#fullScreen").find("#fullScreenExitTip").length){
       $("#fullScreen").append("<p id='fullScreenExitTip'>(click image to return)</p>");
       $("#fullScreen").hide();
+    } else{
+      $("#fullScreenExitTip").delay(1000).fadeIn(500).fadeOut(500).fadeIn(500);
     }
-    $("#fullScreenExitTip").fadeIn(500).fadeOut(500).fadeIn(500);
   }
 
   function clearHovers(){
