@@ -112,6 +112,8 @@ $(document).ready(function(){
     if (isLandscape()) {
       //landscapeMode();
     }
+    updatePort();
+    updateContent();
   });
 
   //click and hover events
