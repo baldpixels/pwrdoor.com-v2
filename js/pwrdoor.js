@@ -63,7 +63,7 @@
     'rocks_red.jpg',
     'shadows.jpg',
     'snow_scooter.jpg',
-    'snowboard_sequence.png',
+    'snowboard_sequence.jpg',
     'steamboat.jpg',
     'succulent.jpg'
   ];
