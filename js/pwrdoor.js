@@ -69,8 +69,9 @@
   ];
 
   var codeLinks = [
-    'http://www.pwrdoor.com',
-    'http://github.com/baldpixels'
+    ['http://www.pwrdoor.com', 'iframe'],
+    ['http://github.com/baldpixels', 'link'],
+    ['https://bitbucket.org/baldpixels/', 'link']
   ];
 
 $(document).ready(function(){
@@ -80,11 +81,13 @@ $(document).ready(function(){
   var portHeight = $("#port").height();
     var portWidth;
   var contentHeight = $("#content").height();
-    var contentWidth = $("#content").width()
+    var contentWidth = $("#content").width();
 
-//on load
+/***** on load *****/
   updatePort();
   updateContent();
+  //if(isPortrait()){}
+  //if(isLandscape()){}
   $("#fullScreen").hide();
   $("#content").hide();
   //load dashboard
@@ -99,6 +102,16 @@ $(document).ready(function(){
     portHeight = $("#port").height();
     updatePort();
     updateContent();
+  });
+
+  //orientation change event (mobile)
+  $(window).on('orientationchange', function() {
+    if (isPortrait()) {
+      //portraitMode();
+    }
+    if (isLandscape()) {
+      //landscapeMode();
+    }
   });
 
   //click and hover events
@@ -369,13 +382,21 @@ $(document).ready(function(){
   function CClick(){
     clearContent();
     clearHovers();
+    if(!contentInit){
+      $("#content").css("z-index", "+6");
+    }
     contentInit = true;
     $("#C_hover").show();
     $("#content").append("<p id='contentHeader'>&lt;Code&gt;</p>");
     for(var i=codeLinks.length-1; i>=0; i--){
-      $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
-      $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-      $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i]+"' target='_blank'>" + codeLinks[i] + "</a></p>");
+      if(codeLinks[i][1]=='iframe'){
+        $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
+        $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i][0] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+        $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i][0]+"' target='_blank'>" + codeLinks[i][0] + "</a></p>");
+      }
+      if(codeLinks[i][1]=='link'){
+        $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i][0]+"' target='_blank'>" + codeLinks[i][0] + "</a></p>");
+      }
       $("#code"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
       //buffer at the bottom
@@ -477,6 +498,14 @@ $(document).ready(function(){
 
   function clearContent(){
     $("#content").html("");
+  }
+
+  function isPortrait() {
+    return window.innerHeight > window.innerWidth;
+  }
+
+  function isLandscape() {
+    return (window.orientation === 90 || window.orientation === -90);
   }
 
 });

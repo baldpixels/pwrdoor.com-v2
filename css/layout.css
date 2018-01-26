@@ -29,16 +29,17 @@ body {
 
 #fullScreen img{
   position: absolute;
-  top: 50%;
+  top: 33%;
   right: 50%;
-  transform: translate(+50%, -50%);
-  height: 90%;
+  transform: translate(+50%, 0);
+  width: 90%;
+  max-height: 90vh:
 }
 
 #fullScreenExitTip {
   z-index: +9;
   position: absolute;
-  bottom: 10px;
+  top: 16.6%;
   width: 100%;
   margin: 0;
   padding: 0;
