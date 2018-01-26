@@ -242,7 +242,7 @@ $(document).ready(function(){
       $("#C").delay(250).fadeIn(250);
       $("#Q").delay(250).fadeIn(250);
       $("#hazard_down").delay(250).fadeIn(250);
-
+      //display content
       $("#content").fadeIn(500);
     });
 

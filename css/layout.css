@@ -282,6 +282,10 @@ body {
   margin: 5px 0 40px 0;
 }
 
+.movieCaption a, .graphicCaption a, .photoCaption a, .codeCaption a {
+  color: #00cc00;
+}
+
 .movieTitle, .graphicTitle, .photoTitle, .codeTitle {
   width: 95%;
   border: 5px outset rgba(0, 0, 0, .8);
@@ -293,10 +297,6 @@ body {
   font-weight: bold;
   font-family: Helvetica;
   margin: 0 0 5px 0;
-}
-
-.movieCaption a, .graphicCaption a, .photoCaption a, .codeCaption a {
-  color: #00cc00;
 }
 
 .graphicCanvas {
@@ -337,6 +337,8 @@ body {
 
 .codeBox iframe {
   width: 95%;
+  max-width: 540px;
+  height: 360px;
   border: none;
   margin: 0;
 }

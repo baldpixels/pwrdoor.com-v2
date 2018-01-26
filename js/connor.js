@@ -28,7 +28,6 @@
 
     function connor(){
       $("#port").append("<img id='connor' src='images/connor.png' alt='' />");
-      $("#port").append("<img id='arrow' src='images/arrow.png' alt='' />");
       $("#content").append("<p class='statement'>Thanks for taking a look at my website.</p>");
       $("#content").append("<p class='statement'>I built the whole thing from scratch, and if you're curious, <a href='https://github.com/baldpixels/baldpixels.github.io' target='_blank'>here's all the code</a>.</p>");
       $("#content").append("<p class='statement'>Most of my projects are personal, but occasionally I'll freelance.</p>");
