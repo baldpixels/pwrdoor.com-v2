@@ -6,6 +6,7 @@
     var frameTime = (1000 / 24);
   var dashUp = false;
   var intro = true;
+  var contentInit = false;
 
   var movieLinks = [
     ['https://player.vimeo.com/video/173084329', 'What We Want', 'Part 1 of 2. I own literally none of this media.'],
@@ -78,10 +79,14 @@ $(document).ready(function(){
 //variables
   var portHeight = $("#port").height();
     var portWidth;
+  var contentHeight = $("#content").height();
+    var contentWidth = $("#content").width()
 
 //on load
   updatePort();
+  updateContent();
   $("#fullScreen").hide();
+  $("#content").hide();
   //load dashboard
   $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
   $("#port").append("<img id='passenger' src='images/passenger.png' alt='' />");
@@ -93,6 +98,7 @@ $(document).ready(function(){
   $(window).resize(function() {
     portHeight = $("#port").height();
     updatePort();
+    updateContent();
   });
 
   //click and hover events
@@ -137,6 +143,14 @@ $(document).ready(function(){
   function updatePort(){
     portWidth = .5625*portHeight;
     $("#port").css("width", portWidth + "px");
+  }
+
+  function updateContent(){
+    if($("#content").is(":visible")){
+      $("#content").css("width", $(window).width()/2 + "px");
+    } else{
+      $("#content:hidden").css("width", $(window).width()/2 + "px");
+    }
   }
 
   function pwrClick(){
@@ -189,16 +203,16 @@ $(document).ready(function(){
       $("#dashboard").append("<img id='hazard_down' src='images/hazard_down.png' alt='' />");
       $("#dashboard").append("<img id='hazard_down_hover' src='images/hazard_down_hover.png' alt='' />");
       //hide hovers
-      $("#left_hover").hide();
-      $("#right_hover").hide();
-      $("#brights_hover").hide();
-      $("#hazard_up_hover").hide();
-      $("#M_hover").hide();
-      $("#G_hover").hide();
-      $("#P_hover").hide();
-      $("#C_hover").hide();
-      $("#Q_hover").hide();
-      $("#hazard_down_hover").hide();
+      $("#left_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#right_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#brights_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#hazard_up_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#M_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#G_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#P_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#C_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#Q_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
+      $("#hazard_down_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
       //hide nav for fade-in
       $("#hazard_up").hide()
       $("#M").hide();
@@ -208,13 +222,15 @@ $(document).ready(function(){
       $("#Q").hide();
       $("#hazard_down").hide()
       //nav fade-in
-      $("#hazard_up").delay(250).fadeIn(1000);
-      $("#M").delay(250).fadeIn(1000);
-      $("#G").delay(250).fadeIn(1000);
-      $("#P").delay(250).fadeIn(1000);
-      $("#C").delay(250).fadeIn(1000);
-      $("#Q").delay(250).fadeIn(1000);
-      $("#hazard_down").delay(250).fadeIn(1000);
+      $("#hazard_up").delay(250).fadeIn(250);
+      $("#M").delay(250).fadeIn(250);
+      $("#G").delay(250).fadeIn(250);
+      $("#P").delay(250).fadeIn(250);
+      $("#C").delay(250).fadeIn(250);
+      $("#Q").delay(250).fadeIn(250);
+      $("#hazard_down").delay(250).fadeIn(250);
+
+      $("#content").fadeIn(500);
     });
 
   }
@@ -224,7 +240,9 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "131%"}, 500, "swing");
     $("#pistonR").animate({left: "61%"}, 500, "swing");
     $("#content").animate({left: "66%"}, 500, "swing");
-    $("#content").css("z-index", "+6");
+    if(contentInit){
+      $("#content").css("z-index", "+6");
+    }
     $("#passenger").animate({right: "33%"}, 500, "swing");
     $("#logo").animate({left: "16.6%"}, 500, "swing");
     $("#left_hover").show().delay(500).fadeOut(100);
@@ -235,8 +253,9 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "61%"}, 500, "swing");
     $("#pistonR").animate({left: "131%"}, 500, "swing");
     $("#content").animate({left: "33%"}, 500, "swing");
-    $("#content").css("z-index", "+6");
-    $("#passenger").animate({right: "66%"}, 500, "swing");
+    if(contentInit){
+      $("#content").css("z-index", "+6");
+    }    $("#passenger").animate({right: "66%"}, 500, "swing");
     $("#logo").animate({left: "83.3%"}, 500, "swing");
     $("#right_hover").show().delay(500).fadeOut(100);
   }
@@ -246,8 +265,9 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "90%"}, 500, "swing");
     $("#pistonR").animate({left: "90%"}, 500, "swing");
     $("#content").animate({left: "50%"}, 500, "swing");
-    $("#content").css("z-index", "+2");
-    $("#passenger").animate({right: "50%"}, 500, "swing");
+    if(contentInit){
+      $("#content").css("z-index", "+2");
+    }    $("#passenger").animate({right: "50%"}, 500, "swing");
     $("#logo").animate({left: "50%"}, 500, "swing");
     $("#brights_hover").show().delay(500).fadeOut(100);
   }
@@ -255,6 +275,10 @@ $(document).ready(function(){
   function MClick(){
     clearContent();
     clearHovers();
+    if(!contentInit){
+      $("#content").css("z-index", "+6");
+    }
+    contentInit = true;
     $("#M_hover").show();
     $("#content").append("<p id='contentHeader'>Movies</p>");
     for(var i=movieLinks.length-1; i>=0; i--){
@@ -277,6 +301,10 @@ $(document).ready(function(){
   function GClick(){
     clearContent();
     clearHovers();
+    if(!contentInit){
+      $("#content").css("z-index", "+6");
+    }
+    contentInit = true;
     $("#G_hover").show();
     $("#content").append("<p id='contentHeader'>Graphics</p>");
     fullScreenTip();
@@ -307,6 +335,10 @@ $(document).ready(function(){
   function PClick(){
     clearContent();
     clearHovers();
+    if(!contentInit){
+      $("#content").css("z-index", "+6");
+    }
+    contentInit = true;
     $("#P_hover").show();
     $("#content").append("<p id='contentHeader'>Photos</p>");
     fullScreenTip();
@@ -337,6 +369,7 @@ $(document).ready(function(){
   function CClick(){
     clearContent();
     clearHovers();
+    contentInit = true;
     $("#C_hover").show();
     $("#content").append("<p id='contentHeader'>&lt;Code&gt;</p>");
     for(var i=codeLinks.length-1; i>=0; i--){

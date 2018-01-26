@@ -189,11 +189,43 @@ body {
   position: absolute;
   top: 22%;
   left: 50%;
-  width: 67%;
+  width: 33%;
+  min-width: 280px;
   height: 69.7%;
   transform: translate(-50%, 0);
   overflow-y: scroll;
   overflow-x: visible;
+  scrollbar-base-color: #140517;
+  scrollbar-face-color: #00cc00;
+  scrollbar-3dlight-color: #00cc00;
+  scrollbar-highlight-color: #00cc00;
+  scrollbar-track-color: #140517;
+  scrollbar-arrow-color: #00cc00;
+  scrollbar-shadow-color: #140517;
+  scrollbar-dark-shadow-color: #140517;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-button {
+    display: none;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    display: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #00cc00;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
+}
+::-webkit-scrollbar-corner {
+  display: none;
 }
 
 #contentHeader {
@@ -213,7 +245,7 @@ body {
 #fullScreenTip {
   position: relative;
   top: -20px;
-  width: 100%;
+  width: 95%;
   margin: 0;
   padding: 0;
   font-family: Helvetica;
