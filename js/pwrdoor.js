@@ -162,15 +162,17 @@ $(document).ready(function(){
 
   function updateContent(){
     if($("#content").is(":visible")){
-      $("#content").css("width", $(window).width()*.5);
+      $("#content").css("width", $(window).width()*.66);
     } else{
-      $("#content:hidden").css("width", $(window).width()*.5);
+      $("#content:hidden").css("width", $(window).width()*.66);
     }
+    //resize movieScreen iframe
     if($(".movieScreen").is(":visible")){
       $(".movieScreen iframe").css("height", $(window).width()*.281);
     } else{
       $(".movieScreen iframe:hidden").css("height", $(window).width()*.281);
     }
+    //resize codeBox iframe
     if($(".codeBox").is(":visible")){
       $(".codeBox iframe").css("height", $(window).width()*.281);
     } else{
@@ -257,7 +259,6 @@ $(document).ready(function(){
       //display content
       $("#content").fadeIn(500);
     });
-
   }
 
   function leftClick(){
@@ -291,8 +292,13 @@ $(document).ready(function(){
     $("#pistonR").animate({left: "90%"}, 500, "swing");
     $("#content").animate({left: "50%"}, 500, "swing");
     if(contentInit){
-      $("#content").css("z-index", "+2");
-    }    $("#passenger").animate({right: "50%"}, 500, "swing");
+      if($("#content").css("z-index")==6){
+        $("#content").css("z-index", "+2");
+      } else{
+        $("#content").css("z-index", "+6");
+      }
+    }
+    $("#passenger").animate({right: "50%"}, 500, "swing");
     $("#logo").animate({left: "50%"}, 500, "swing");
     $("#brights_hover").show().delay(500).fadeOut(100);
   }
@@ -300,9 +306,7 @@ $(document).ready(function(){
   function MClick(){
     clearContent();
     clearHovers();
-    if(!contentInit){
-      $("#content").css("z-index", "+6");
-    }
+    $("#content").css("z-index", "+6");
     contentInit = true;
     $("#M_hover").show();
     $("#content").append("<p id='contentHeader'>Movies</p>");
@@ -327,9 +331,7 @@ $(document).ready(function(){
   function GClick(){
     clearContent();
     clearHovers();
-    if(!contentInit){
-      $("#content").css("z-index", "+6");
-    }
+    $("#content").css("z-index", "+6");
     contentInit = true;
     $("#G_hover").show();
     $("#content").append("<p id='contentHeader'>Graphics</p>");
@@ -361,9 +363,7 @@ $(document).ready(function(){
   function PClick(){
     clearContent();
     clearHovers();
-    if(!contentInit){
-      $("#content").css("z-index", "+6");
-    }
+    $("#content").css("z-index", "+6");
     contentInit = true;
     $("#P_hover").show();
     $("#content").append("<p id='contentHeader'>Photos</p>");
@@ -395,9 +395,7 @@ $(document).ready(function(){
   function CClick(){
     clearContent();
     clearHovers();
-    if(!contentInit){
-      $("#content").css("z-index", "+6");
-    }
+    $("#content").css("z-index", "+6");
     contentInit = true;
     $("#C_hover").show();
     $("#content").append("<p id='contentHeader'>&lt;Code&gt;</p>");
@@ -465,10 +463,12 @@ $(document).ready(function(){
     var photoSrc = $(this).attr('src');
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", photoSrc)
-    //is image too small?
-    //this still doesn't work...
-    if($(window).height() > $(this).naturalHeight){
-      $("#fullScreen img").attr('height', $(this).naturalHeight);
+    //center img if its width is less than the window width
+    if($(window).width() < $("#fullScreen img").width()){
+      $("#fullScreen img").css("left", 0);
+    } else {
+      var leftShift = ($(window).width() - $("#fullScreen img").width())*.5;
+      $("#fullScreen img").css("left", leftShift);
     }
     fullScreenExitTip()
     $("#fullScreen").animate({top: "0px"}, 500, "swing");
@@ -478,10 +478,12 @@ $(document).ready(function(){
     var graphicSrc = $(this).attr('src');
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", graphicSrc)
-    //is image too small?
-    //this still doesn't work...
-    if($(window).height() > $(this).naturalHeight){
-      $("#fullScreen img").attr('height', $(this).naturalHeight);
+    //center img if its width is less than the window width
+    if($(window).width() < $("#fullScreen img").width()){
+      $("#fullScreen img").css("left", 0);
+    } else {
+      var leftShift = ($(window).width() - $("#fullScreen img").width())*.5;
+      $("#fullScreen img").css("left", leftShift);
     }
     fullScreenExitTip();
     $("#fullScreen").animate({top: "0px"}, 500, "swing");

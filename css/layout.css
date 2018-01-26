@@ -29,23 +29,21 @@ body {
 
 #fullScreen img{
   position: absolute;
-  top: 33%;
-  right: 50%;
-  transform: translate(+50%, 0);
-  width: 90%;
-  max-height: 90vh:
+  top: 8.2%;
+  left: 0;
+  height: 82.6%;
 }
 
 #fullScreenExitTip {
   z-index: +9;
-  position: absolute;
-  top: 16.6%;
+  position: fixed;
+  bottom: 4.1%;
   width: 100%;
   margin: 0;
   padding: 0;
   font-family: Helvetica;
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: lighter;
   color: #00cc00;
   opacity: .5;
@@ -76,115 +74,6 @@ body {
   height: 100%;
 }
 
-#dash {
-  z-index: +3;
-  position: absolute;
-  top: -100%;
-  width: 100%;
-}
-
-#pistonL, #pistonR {
-  z-index: +4;
-  position: fixed;
-  top: -100%;
-  height: 19.5%;
-}
-
-#pistonL {
-  right: 90%;
-}
-
-#pistonR {
-  left: 90%;
-}
-
-#passenger {
-  z-index: +7;
-  position: absolute;
-  bottom: -100%;
-  right: 50%;
-  transform: translate(+50%, -50%);
-  width: 72.2%;
-}
-
-#left, #right, #left_hover, #right_hover {
-  z-index: +5;
-  position: absolute;
-  top: 4.2%;
-  width: 19%;
-}
-
-#right, #right_hover {
-  right: 13.95%;
-}
-
-#left, #left_hover {
-  left: 15.1%;
-}
-
-#brights, #brights_hover {
-  z-index: +5;
-  position: absolute;
-  top: 3.3%;
-  left: 39.9%;
-  width: 22%;
-}
-
-#hazard_up, #hazard_up_hover, #hazard_down, #hazard_down_hover {
-  z-index: +5;
-  position: absolute;
-  left: 44.2%;
-  width: 14.4%;
-}
-
-#hazard_up, #hazard_up_hover {
-  top: 19.5%;
-}
-
-#hazard_down, #hazard_down_hover {
-  top: 69%;
-}
-
-#M, #M_hover {
-  z-index: +5;
-  position: absolute;
-  top: 27.2%;
-  left: 43.4%;
-  width: 16%;
-}
-
-#G, #G_hover {
-  z-index: +5;
-  position: absolute;
-  top: 35.7%;
-  left: 43.4%;
-  width: 16%;
-}
-
-#P, #P_hover {
-  z-index: +5;
-  position: absolute;
-  top: 43.9%;
-  left: 43.4%;
-  width: 16%;
-}
-
-#C, #C_hover {
-  z-index: +5;
-  position: absolute;
-  top: 52.5%;
-  left: 43.4%;
-  width: 16%;
-}
-
-#Q, #Q_hover {
-  z-index: +5;
-  position: absolute;
-  top: 60.8%;
-  left: 43.4%;
-  width: 16%;
-}
-
 #content {
   z-index: +2;
   position: absolute;
@@ -192,6 +81,7 @@ body {
   left: 50%;
   width: 33%;
   min-width: 280px;
+  max-width: 720px;
   height: 69.7%;
   transform: translate(-50%, 0);
   overflow-y: scroll;
