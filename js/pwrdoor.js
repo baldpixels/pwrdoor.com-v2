@@ -160,9 +160,19 @@ $(document).ready(function(){
 
   function updateContent(){
     if($("#content").is(":visible")){
-      $("#content").css("width", $(window).width()/2 + "px");
+      $("#content").css("width", $(window).width()*.5);
     } else{
-      $("#content:hidden").css("width", $(window).width()/2 + "px");
+      $("#content:hidden").css("width", $(window).width()*.5);
+    }
+    if($(".movieScreen").is(":visible")){
+      $(".movieScreen iframe").css("height", $(window).width()*.281);
+    } else{
+      $(".movieScreen iframe:hidden").css("height", $(window).width()*.281);
+    }
+    if($(".codeBox").is(":visible")){
+      $(".codeBox iframe").css("height", $(window).width()*.281);
+    } else{
+      $(".codeBox iframe:hidden").css("height", $(window).width()*.281);
     }
   }
 
@@ -309,6 +319,7 @@ $(document).ready(function(){
         $("#content").append("<br>");
       }
     }
+    $(".movieScreen iframe").css("height", $(window).width()*.281);
   }
 
   function GClick(){
@@ -406,6 +417,7 @@ $(document).ready(function(){
         $("#content").append("<br>");
       }
     }
+    $(".codeBox iframe").css("height", $(window).width()*.281);
   }
 
   function QClick(){

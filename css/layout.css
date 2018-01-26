@@ -267,6 +267,7 @@ body {
 
 .movieScreen iframe {
   width: 95%;
+  height: 360px;
   border: none;
   margin: 0;
 }
@@ -337,7 +338,6 @@ body {
 
 .codeBox iframe {
   width: 95%;
-  max-width: 540px;
   height: 360px;
   border: none;
   margin: 0;
