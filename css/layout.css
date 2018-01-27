@@ -149,7 +149,7 @@ body {
 
 .movieScreen {
   width: 95%;
-  border: 5px outset rgba(0, 0, 0, .8);
+  border: 5px solid rgba(0, 0, 0, .6);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;
@@ -164,7 +164,7 @@ body {
 
 .movieCaption, .graphicCaption, .photoCaption, .codeCaption {
   width: 95%;
-  border: 5px outset rgba(0, 0, 0, .8);
+  border: 5px solid rgba(0, 0, 0, .6);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
   font-size: 12px;
@@ -179,7 +179,7 @@ body {
 
 .movieTitle, .graphicTitle, .photoTitle, .codeTitle {
   width: 95%;
-  border: 5px outset rgba(0, 0, 0, .8);
+  border: 5px solid rgba(0, 0, 0, .6);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
   font-size: 24px;
@@ -192,7 +192,7 @@ body {
 
 .graphicCanvas {
   width: 95%;
-  border: 5px outset rgba(0, 0, 0, .8);
+  border: 5px solid rgba(0, 0, 0, .6);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;
@@ -206,7 +206,7 @@ body {
 
 .photoFrame {
   width: 95%;
-  border: 5px outset rgba(0, 0, 0, .8);
+  border: 5px solid rgba(0, 0, 0, .6);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;
@@ -220,7 +220,7 @@ body {
 
 .codeBox {
   width: 95%;
-  border: 5px outset rgba(0, 0, 0, .8);
+  border: 5px solid rgba(0, 0, 0, .6);
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;

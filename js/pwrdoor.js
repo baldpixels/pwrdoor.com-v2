@@ -229,17 +229,6 @@ $(document).ready(function(){
       //hazard down
       $("#dashboard").append("<img id='hazard_down' src='images/hazard_down.png' alt='' />");
       $("#dashboard").append("<img id='hazard_down_hover' src='images/hazard_down_hover.png' alt='' />");
-      //hide hovers
-      $("#left_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#right_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#brights_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#hazard_up_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#M_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#G_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#P_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#C_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#Q_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
-      $("#hazard_down_hover").hide().delay(500).fadeIn(250).fadeOut(250).fadeIn(250).fadeOut(250);
       //hide nav for fade-in
       $("#hazard_up").hide()
       $("#M").hide();
@@ -256,6 +245,19 @@ $(document).ready(function(){
       $("#C").delay(250).fadeIn(250);
       $("#Q").delay(250).fadeIn(250);
       $("#hazard_down").delay(250).fadeIn(250);
+      //blink hovers
+      var delayTime = 750;
+      var blinkTime = 150;
+      $("#left_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#right_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#brights_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#hazard_up_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#M_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#G_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#P_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#C_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#Q_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+      $("#hazard_down_hover").hide().delay(delayTime).fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
       //display content
       $("#content").fadeIn(500);
     });
