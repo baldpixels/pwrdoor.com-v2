@@ -9,7 +9,7 @@ PWRDOOR media's digital portfolio
 
 ## Authors
 
-* **Connor Rudmann** - [baldPixels](https://github.com/baldpixels)
+* **Connor Rudmann** - [baldpixels](https://github.com/baldpixels)
 
 ## License
 
