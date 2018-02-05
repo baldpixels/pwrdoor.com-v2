@@ -51,21 +51,27 @@
 
   var photoLinks = [
     'berries.jpg',
-    'canyon_steam.jpg',
-    'commerce_city.jpg',
-    'coyote.jpg',
-    'FORK.jpg',
     'lovers_pee.jpg',
-    'mesa.jpg',
     'penny_purple.jpg',
-    'ranger.jpg',
     'reach.jpg',
+    'coyote.jpg',
     'rocks_red.jpg',
+    'canyon_steam.jpg',
+    'ranger.jpg',
+    'mesa.jpg',
+    'FORK.jpg',
+    'commerce_city.jpg',
     'shadows.jpg',
     'snow_scooter.jpg',
     'snowboard_sequence.jpg',
     'steamboat.jpg',
-    'succulent.jpg'
+    'succulent.jpg',
+    'potatoes.jpg',
+    'annuals.jpg',
+    'lily_pads.jpg',
+    'harbor.jpg',
+    'superior-frozen.jpg',
+    'ice_1.jpg'
   ];
 
   var codeLinks = [
@@ -193,7 +199,7 @@ $(document).ready(function(){
 
   function introAnimation(){
     $("#logo").attr('src', "images/logo.png");
-    $("#passenger").animate({bottom: "-10px"}, 625, "swing");
+    $("#passenger").animate({bottom: "-24px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
     $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
@@ -429,7 +435,7 @@ $(document).ready(function(){
     if(!dashUp){
       $("#hazard_up_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "-68%"}, 500, "swing");
-      $("#passenger").animate({bottom: "-8%"}, 500, "swing");
+      $("#passenger").animate({bottom: "-48px"}, 500, "swing");
       $("#pistonL").animate({top: "-68%"}, 500, "swing");
       $("#pistonR").animate({top: "-68%"}, 500, "swing");
       dashUp = true;
@@ -440,7 +446,7 @@ $(document).ready(function(){
     if(dashUp){
       $("#hazard_down_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "0px"}, 500, "easeOutBack");
-      $("#passenger").animate({bottom: "-10px"}, 500, "swing");
+      $("#passenger").animate({bottom: "-24px"}, 500, "swing");
       $("#pistonL").animate({top: "0px"}, 500, "easeOutBack");
       $("#pistonR").animate({top: "0px"}, 500, "easeOutBack");
       $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
