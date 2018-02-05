@@ -297,6 +297,7 @@ $(document).ready(function(){
     if(contentInit){
       toggleDash();
     }
+    $("#brights_hover").show().delay(500).fadeOut(100);
   }
 
   function MClick(){
@@ -452,30 +453,22 @@ $(document).ready(function(){
 
   function toggleDash(){
     var toggleTime = 250;
-    //re-center dash
-    $("#dashboard").animate({left: "0px"}, 500, "swing");
-    $("#pistonL").animate({right: "90%"}, 500, "swing");
-    $("#pistonR").animate({left: "90%"}, 500, "swing");
-    $("#content").animate({left: "50%"}, 500, "swing");
-    $("#passenger").animate({right: "50%"}, 500, "swing");
-    $("#logo").animate({left: "50%"}, 500, "swing", function(){
-      //move dash up
-      $("#dashboard").animate({top: "-68%"}, toggleTime, "swing");
-      $("#passenger").animate({bottom: "-48px"}, toggleTime, "swing");
-      $("#pistonL").animate({top: "-68%"}, toggleTime, "swing");
-      $("#pistonR").animate({top: "-68%"}, toggleTime, "swing", function(){
-        if($("#content").css("z-index")==6){
-          $("#content").css("z-index", "+2");
-        } else{
-          $("#content").css("z-index", "+6");
-        }
-        //move dash back down
-        $("#dashboard").animate({top: "0px"}, toggleTime, "easeOutBack");
-        $("#passenger").animate({bottom: "-24px"}, toggleTime, "swing");
-        $("#pistonL").animate({top: "0px"}, toggleTime, "easeOutBack");
-        $("#pistonR").animate({top: "0px"}, toggleTime, "easeOutBack");
-        $("#logo").animate({top: "-5%"}, (toggleTime+120), "easeOutBack").animate({top: "-200px"}, 500, "swing");
-      });
+    //move dash up
+    $("#dashboard").animate({top: "-68%"}, toggleTime, "swing");
+    $("#passenger").animate({bottom: "-48px"}, toggleTime, "swing");
+    $("#pistonL").animate({top: "-68%"}, toggleTime, "swing");
+    $("#pistonR").animate({top: "-68%"}, toggleTime, "swing", function(){
+      if($("#content").css("z-index")==6){
+        $("#content").css("z-index", "+2");
+      } else{
+        $("#content").css("z-index", "+6");
+      }
+      //move dash back down
+      $("#dashboard").animate({top: "0px"}, toggleTime, "easeOutBack");
+      $("#passenger").animate({bottom: "-24px"}, toggleTime, "swing");
+      $("#pistonL").animate({top: "0px"}, toggleTime, "easeOutBack");
+      $("#pistonR").animate({top: "0px"}, toggleTime, "easeOutBack");
+      $("#logo").animate({top: "-5%"}, (toggleTime+120), "easeOutBack").animate({top: "-200px"}, 500, "swing");
     });
   }
 
