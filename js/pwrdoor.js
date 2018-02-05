@@ -198,6 +198,7 @@ $(document).ready(function(){
   }
 
   function introAnimation(){
+    //pull down dash
     $("#logo").attr('src', "images/logo.png");
     $("#passenger").animate({bottom: "-24px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
@@ -293,7 +294,6 @@ $(document).ready(function(){
   }
 
   function brightsClick(){
-    $("#brights_hover").show();
     if(contentInit){
       toggleDash();
     }
