@@ -277,10 +277,6 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "131%"}, 500, "swing");
     $("#pistonR").animate({left: "61%"}, 500, "swing");
     $("#content").animate({left: "66%"}, 500, "swing");
-    if(contentInit){
-      $("#content").css("z-index", "+6");
-      $("#brights_hover").fadeOut(333);
-    }
     $("#passenger").animate({right: "33%"}, 500, "swing");
     $("#logo").animate({left: "16.6%"}, 500, "swing");
     $("#left_hover").show().delay(500).fadeOut(100);
@@ -291,10 +287,7 @@ $(document).ready(function(){
     $("#pistonL").animate({right: "61%"}, 500, "swing");
     $("#pistonR").animate({left: "131%"}, 500, "swing");
     $("#content").animate({left: "33%"}, 500, "swing");
-    if(contentInit){
-      $("#content").css("z-index", "+6");
-      $("#brights_hover").fadeOut(333);
-    }    $("#passenger").animate({right: "66%"}, 500, "swing");
+    $("#passenger").animate({right: "66%"}, 500, "swing");
     $("#logo").animate({left: "83.3%"}, 500, "swing");
     $("#right_hover").show().delay(500).fadeOut(100);
   }
