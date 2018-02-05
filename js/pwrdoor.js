@@ -46,7 +46,8 @@
     'RED_original.jpg',
     'still_life.jpg',
     'suburbs_mockup.jpg',
-    'suburbs.jpg'
+    'suburbs.jpg',
+    'mauna_kea_moonrise.gif'
   ];
 
   var photoLinks = [
