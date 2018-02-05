@@ -17,36 +17,36 @@
   ];
 
   var graphicLinks = [
-    'Ace_eyes_closed.jpg',
-    'bonsai_logo.png',
-    'columbia_airport_billboard.jpg',
-    'ComEd_dashboard_mockup.png',
-    'ComEd_mobile_mockup.png',
-    'ComEd_sun.png',
     'COMMON_REED_blue.jpg',
     'COMMON_REED_yellow.png',
+    'self_portrait.jpg',
     'ink_01.jpg',
     'ink_02.jpg',
     'ink_03.jpg',
+    'Ace_eyes_closed.jpg',
     'manet_copy.jpg',
     'mary_grace_legs.jpg',
-    'movies.png',
     'purple_axe.png',
+    'ComEd_dashboard_mockup.png',
+    'ComEd_mobile_mockup.png',
+    'ComEd_sun.png',
+    'movies.png',
+    'xinxi.png',
     'PWR_DOOR_logo.png',
     'PWR_DOOR_media_intro.gif',
     'PWR_DOOR_OFF_logo.png',
+    'bonsai_logo.png',
+    'columbia_airport_billboard.jpg',
     'Q_logo_brail.png',
-    'Q_logo_green.png',
     'Q_logo_lowercase.png',
+    'Q_logo_green.png',
     'Q_logo_yellow.png',
     'Q_slogan_yellow.png',
     'RED_filtered_light.jpg',
     'RED_original.jpg',
-    'self_portrait.jpg',
     'still_life.jpg',
     'suburbs_mockup.jpg',
-    'suburbs.jpg',
-    'xinxi.png'
+    'suburbs.jpg'
   ];
 
   var photoLinks = [
@@ -246,19 +246,26 @@ $(document).ready(function(){
       $("#C_hover").hide();
       $("#Q_hover").hide();
       $("#hazard_down_hover").hide();
-      //blink hovers
+      //blink animation
       setTimeout(function(){
-        var blinkTime = 150;
-        $("#left_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#right_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#brights_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#hazard_up_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#M_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#G_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#P_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#C_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#Q_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#hazard_down_hover").fadeIn(blinkTime).fadeOut(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+        var blinkTime = 250;
+        $("#right_hover").fadeIn(blinkTime).fadeOut(blinkTime);
+        $("#left_hover").fadeIn(blinkTime, function(){
+          $("#left_hover").fadeOut(blinkTime);
+          $("#hazard_down_hover").delay(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
+          $("#hazard_up_hover").delay(blinkTime).fadeIn(blinkTime, function(){
+            $("#hazard_up_hover").fadeOut(blinkTime);
+            $("#brights_hover").delay(blinkTime).fadeIn(blinkTime, function(){
+              $("#brights_hover").fadeOut(blinkTime, function(){
+                $("#right_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
+                $("#left_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
+                $("#hazard_down_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
+                $("#hazard_up_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
+                $("#brights_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime*5).fadeOut(blinkTime*2);
+              });
+            });
+          });
+        });
         //display content
         $("#content").fadeIn(500);
       }, 750);
@@ -272,6 +279,7 @@ $(document).ready(function(){
     $("#content").animate({left: "66%"}, 500, "swing");
     if(contentInit){
       $("#content").css("z-index", "+6");
+      $("#brights_hover").fadeOut(333);
     }
     $("#passenger").animate({right: "33%"}, 500, "swing");
     $("#logo").animate({left: "16.6%"}, 500, "swing");
@@ -285,32 +293,24 @@ $(document).ready(function(){
     $("#content").animate({left: "33%"}, 500, "swing");
     if(contentInit){
       $("#content").css("z-index", "+6");
+      $("#brights_hover").fadeOut(333);
     }    $("#passenger").animate({right: "66%"}, 500, "swing");
     $("#logo").animate({left: "83.3%"}, 500, "swing");
     $("#right_hover").show().delay(500).fadeOut(100);
   }
 
   function brightsClick(){
-    $("#dashboard").animate({left: "0px"}, 500, "swing");
-    $("#pistonL").animate({right: "90%"}, 500, "swing");
-    $("#pistonR").animate({left: "90%"}, 500, "swing");
-    $("#content").animate({left: "50%"}, 500, "swing");
+    $("#brights_hover").show();
     if(contentInit){
-      if($("#content").css("z-index")==6){
-        $("#content").css("z-index", "+2");
-      } else{
-        $("#content").css("z-index", "+6");
-      }
+      toggleDash();
     }
-    $("#passenger").animate({right: "50%"}, 500, "swing");
-    $("#logo").animate({left: "50%"}, 500, "swing");
-    $("#brights_hover").show().delay(500).fadeOut(100);
   }
 
   function MClick(){
     clearContent();
     clearHovers();
-    $("#content").css("z-index", "+6");
+    toggleDash();
+    $("#brights_hover").fadeOut(333);
     contentInit = true;
     $("#M_hover").show();
     $("#content").append("<p id='contentHeader'>Movies</p>");
@@ -335,7 +335,8 @@ $(document).ready(function(){
   function GClick(){
     clearContent();
     clearHovers();
-    $("#content").css("z-index", "+6");
+    toggleDash();
+    $("#brights_hover").fadeOut(333);
     contentInit = true;
     $("#G_hover").show();
     $("#content").append("<p id='contentHeader'>Graphics</p>");
@@ -367,7 +368,8 @@ $(document).ready(function(){
   function PClick(){
     clearContent();
     clearHovers();
-    $("#content").css("z-index", "+6");
+    toggleDash();
+    $("#brights_hover").fadeOut(333);
     contentInit = true;
     $("#P_hover").show();
     $("#content").append("<p id='contentHeader'>Photos</p>");
@@ -399,7 +401,8 @@ $(document).ready(function(){
   function CClick(){
     clearContent();
     clearHovers();
-    $("#content").css("z-index", "+6");
+    toggleDash();
+    $("#brights_hover").fadeOut(333);
     contentInit = true;
     $("#C_hover").show();
     $("#content").append("<p id='contentHeader'>&lt;Code&gt;</p>");
@@ -452,6 +455,35 @@ $(document).ready(function(){
       $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
       dashUp = false;
     }
+  }
+
+  function toggleDash(){
+    var toggleTime = 250;
+    //re-center dash
+    $("#dashboard").animate({left: "0px"}, 500, "swing");
+    $("#pistonL").animate({right: "90%"}, 500, "swing");
+    $("#pistonR").animate({left: "90%"}, 500, "swing");
+    $("#content").animate({left: "50%"}, 500, "swing");
+    $("#passenger").animate({right: "50%"}, 500, "swing");
+    $("#logo").animate({left: "50%"}, 500, "swing", function(){
+      //move dash up
+      $("#dashboard").animate({top: "-68%"}, toggleTime, "swing");
+      $("#passenger").animate({bottom: "-48px"}, toggleTime, "swing");
+      $("#pistonL").animate({top: "-68%"}, toggleTime, "swing");
+      $("#pistonR").animate({top: "-68%"}, toggleTime, "swing", function(){
+        if($("#content").css("z-index")==6){
+          $("#content").css("z-index", "+2");
+        } else{
+          $("#content").css("z-index", "+6");
+        }
+        //move dash back down
+        $("#dashboard").animate({top: "0px"}, toggleTime, "easeOutBack");
+        $("#passenger").animate({bottom: "-24px"}, toggleTime, "swing");
+        $("#pistonL").animate({top: "0px"}, toggleTime, "easeOutBack");
+        $("#pistonR").animate({top: "0px"}, toggleTime, "easeOutBack");
+        $("#logo").animate({top: "-5%"}, (toggleTime+120), "easeOutBack").animate({top: "-200px"}, 500, "swing");
+      });
+    });
   }
 
   function passengerText(text){
