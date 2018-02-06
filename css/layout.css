@@ -41,7 +41,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: Helvetica;
+  font-family: 'Rubik', sans-serif;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
@@ -121,36 +121,39 @@ body {
 
 #contentHeader {
   width: 95%;
-  border: 5px outset rgba(0, 0, 0, .8);
+  border: 5px solid rgba(0, 0, 0, .8);
+  border-radius: 30px 30px 0 0;
   padding: 5px;
   background-color: rgba(0, 0, 0, .8);
-  font-size: 48px;
+  font-size: 64px;
   color: #e6e6e6;
   text-transform: lowercase;
   font-weight: bold;
-  font-family: Helvetica;
+  font-family: 'Rubik', sans-serif;
   margin: 0 0 40px 0;
   text-align: center;
 }
 
 #fullScreenTip {
   position: relative;
-  top: -20px;
+  top: -30px;
   width: 95%;
   margin: 0;
-  padding: 0;
-  font-family: Helvetica;
+  padding: 5px;
+  border: 5px solid rgba(0, 0, 0, .8);
+  border-radius: 0 0 30px 30px;
+  background-color: rgba(0, 0, 0, .8);
+  font-family: 'Rubik', sans-serif;
   text-align: center;
   font-size: 18px;
-  font-weight: bold;
+  font-weight: lighter;
   color: #00cc00;
-  opacity: .5;
 }
 
 .movieScreen {
   width: 95%;
   border: 5px solid rgba(0, 0, 0, .6);
-  padding: 5px;
+  padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;
 }
@@ -165,11 +168,12 @@ body {
 .movieCaption, .graphicCaption, .photoCaption, .codeCaption {
   width: 95%;
   border: 5px solid rgba(0, 0, 0, .6);
-  padding: 5px;
+  border-radius: 0 0 30px 30px;
+  padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
-  font-size: 12px;
+  font-size: 16px;
   color: #e6e6e6;
-  font-family: Helvetica;
+  font-family: 'Rubik', sans-serif;
   margin: 5px 0 40px 0;
 }
 
@@ -180,20 +184,21 @@ body {
 .movieTitle, .graphicTitle, .photoTitle, .codeTitle {
   width: 95%;
   border: 5px solid rgba(0, 0, 0, .6);
-  padding: 5px;
+  border-radius: 30px 30px 0 0;
+  padding: 5px 5px 5px 15px;
   background-color: rgba(0, 0, 0, .8);
-  font-size: 24px;
+  font-size: 32px;
   color: #e6e6e6;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: Helvetica;
+  font-family: 'Rubik', sans-serif;
   margin: 0 0 5px 0;
 }
 
 .graphicCanvas {
   width: 95%;
   border: 5px solid rgba(0, 0, 0, .6);
-  padding: 5px;
+  padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;
 }
@@ -207,7 +212,7 @@ body {
 .photoFrame {
   width: 95%;
   border: 5px solid rgba(0, 0, 0, .6);
-  padding: 5px;
+  padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;
 }
@@ -221,7 +226,7 @@ body {
 .codeBox {
   width: 95%;
   border: 5px solid rgba(0, 0, 0, .6);
-  padding: 5px;
+  padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
   text-align: center;
 }

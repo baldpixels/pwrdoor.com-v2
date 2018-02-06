@@ -2,8 +2,6 @@
 //global
 
 //variables
-  var fps = 24;
-    var frameTime = (1000 / 24);
   var dashUp = false;
   var intro = true;
   var contentInit = false;
@@ -76,7 +74,7 @@
   ];
 
   var codeLinks = [
-    ['http://www.pwrdoor.com', 'iframe'],
+    ['http://www.pwrdoor.com', 'link'],
     ['http://github.com/baldpixels', 'link'],
     ['https://bitbucket.org/baldpixels/', 'link']
   ];
@@ -86,7 +84,7 @@ $(document).ready(function(){
 
 //variables
   var portHeight = $("#port").height();
-    var portWidth;
+    var portWidth = $("#port").width();
   var contentHeight = $("#content").height();
     var contentWidth = $("#content").width();
 
@@ -201,7 +199,7 @@ $(document).ready(function(){
   function introAnimation(){
     //pull down dash
     $("#logo").attr('src', "images/logo.png");
-    $("#passenger").animate({bottom: "-24px"}, 625, "swing");
+    $("#passenger").animate({bottom: "-9px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
     $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
@@ -250,24 +248,9 @@ $(document).ready(function(){
       $("#hazard_down_hover").hide();
       //blink animation
       setTimeout(function(){
-        var blinkTime = 250;
-        $("#right_hover").fadeIn(blinkTime).fadeOut(blinkTime);
-        $("#left_hover").fadeIn(blinkTime, function(){
-          $("#left_hover").fadeOut(blinkTime);
-          $("#hazard_down_hover").delay(blinkTime).fadeIn(blinkTime).fadeOut(blinkTime);
-          $("#hazard_up_hover").delay(blinkTime).fadeIn(blinkTime, function(){
-            $("#hazard_up_hover").fadeOut(blinkTime);
-            $("#brights_hover").delay(blinkTime).fadeIn(blinkTime, function(){
-              $("#brights_hover").fadeOut(blinkTime, function(){
-                $("#right_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
-                $("#left_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
-                $("#hazard_down_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
-                $("#hazard_up_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime).fadeOut(blinkTime);
-                $("#brights_hover").delay(blinkTime).fadeIn(blinkTime).delay(blinkTime*5).fadeOut(blinkTime*2);
-              });
-            });
-          });
-        });
+        var blinkTime = 150;
+        $("#right_hover").fadeIn(blinkTime).delay(100).fadeOut(blinkTime).delay(100).fadeIn(blinkTime).delay(100).fadeOut(blinkTime);
+        $("#left_hover").fadeIn(blinkTime).delay(100).fadeOut(blinkTime).delay(100).fadeIn(blinkTime).delay(100).fadeOut(blinkTime);
         //display content
         $("#content").fadeIn(500);
       }, 750);
@@ -275,12 +258,12 @@ $(document).ready(function(){
   }
 
   function leftClick(){
-    $("#dashboard").animate({left: "-33%"}, 500, "swing");
+    $("#dashboard").animate({left: "-36%"}, 500, "swing");
     $("#pistonL").animate({right: "131%"}, 500, "swing");
     $("#pistonR").animate({left: "61%"}, 500, "swing");
-    $("#content").animate({left: "66%"}, 500, "swing");
-    $("#passenger").animate({right: "33%"}, 500, "swing");
-    $("#logo").animate({left: "16.6%"}, 500, "swing");
+    $("#content").animate({left: "63%"}, 500, "swing");
+    $("#passenger").animate({right: "39%"}, 500, "swing");
+    $("#logo").animate({left: "15.3%"}, 500, "swing");
     $("#left_hover").show().delay(500).fadeOut(100);
   }
 
@@ -288,8 +271,8 @@ $(document).ready(function(){
     $("#dashboard").animate({left: "33%"}, 500, "swing");
     $("#pistonL").animate({right: "61%"}, 500, "swing");
     $("#pistonR").animate({left: "131%"}, 500, "swing");
-    $("#content").animate({left: "33%"}, 500, "swing");
-    $("#passenger").animate({right: "66%"}, 500, "swing");
+    $("#content").animate({left: "36%"}, 500, "swing");
+    $("#passenger").animate({right: "61%"}, 500, "swing");
     $("#logo").animate({left: "83.3%"}, 500, "swing");
     $("#right_hover").show().delay(500).fadeOut(100);
   }
@@ -433,7 +416,7 @@ $(document).ready(function(){
     if(!dashUp){
       $("#hazard_up_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "-68%"}, 500, "swing");
-      $("#passenger").animate({bottom: "-48px"}, 500, "swing");
+      $("#passenger").animate({bottom: "-36px"}, 500, "swing");
       $("#pistonL").animate({top: "-68%"}, 500, "swing");
       $("#pistonR").animate({top: "-68%"}, 500, "swing");
       dashUp = true;
@@ -444,7 +427,7 @@ $(document).ready(function(){
     if(dashUp){
       $("#hazard_down_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "0px"}, 500, "easeOutBack");
-      $("#passenger").animate({bottom: "-24px"}, 500, "swing");
+      $("#passenger").animate({bottom: "-9px"}, 500, "swing");
       $("#pistonL").animate({top: "0px"}, 500, "easeOutBack");
       $("#pistonR").animate({top: "0px"}, 500, "easeOutBack");
       $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
@@ -456,7 +439,7 @@ $(document).ready(function(){
     var toggleTime = 250;
     //move dash up
     $("#dashboard").animate({top: "-68%"}, toggleTime, "swing");
-    $("#passenger").animate({bottom: "-48px"}, toggleTime, "swing");
+    $("#passenger").animate({bottom: "-36px"}, toggleTime, "swing");
     $("#pistonL").animate({top: "-68%"}, toggleTime, "swing");
     $("#pistonR").animate({top: "-68%"}, toggleTime, "swing", function(){
       if($("#content").css("z-index")==6){
@@ -466,7 +449,7 @@ $(document).ready(function(){
       }
       //move dash back down
       $("#dashboard").animate({top: "0px"}, toggleTime, "easeOutBack");
-      $("#passenger").animate({bottom: "-24px"}, toggleTime, "swing");
+      $("#passenger").animate({bottom: "-9px"}, toggleTime, "swing");
       $("#pistonL").animate({top: "0px"}, toggleTime, "easeOutBack");
       $("#pistonR").animate({top: "0px"}, toggleTime, "easeOutBack");
       $("#logo").animate({top: "-5%"}, (toggleTime+120), "easeOutBack").animate({top: "-200px"}, 500, "swing");
