@@ -29,7 +29,7 @@ $(document).ready(function(){
   $("#content").hide();
   //pre-load dashboard
   $("#dashboard").append("<img id='dash' src='images/dash.png' alt='' />");
-  $("#port").append("<img id='passenger' src='images/passenger.png' alt='' />");
+  //$("#port").append("<img id='passenger' src='images/passenger.png' alt='' />");
   $("#port").append("<img id='pistonL' src='images/pistonL.png' alt='' />");
   $("#port").append("<img id='pistonR' src='images/pistonR.png' alt='' />");
 
@@ -93,7 +93,7 @@ $(document).ready(function(){
   function introAnimation(){
     //pull down dash
     $("#logo").attr("src", "images/logo.png");
-    $("#passenger").animate({bottom: "-9px"}, 625, "swing");
+    //$("#passenger").animate({bottom: "-9px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
     $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
@@ -159,7 +159,7 @@ $(document).ready(function(){
     $("#pistonR").animate({left: "61%"}, 500, "swing");
     //passenger and content move right
     $("#content").animate({left: "63%"}, 500, "swing");
-    $("#passenger").animate({right: "39%"}, 500, "swing");
+    //$("#passenger").animate({right: "39%"}, 500, "swing");
     //logo should move left, too
     $("#logo").animate({left: "15.3%"}, 500, "swing");
     $("#left_hover").show().delay(500).fadeOut(100);
@@ -172,7 +172,7 @@ $(document).ready(function(){
     $("#pistonR").animate({left: "131%"}, 500, "swing");
     //passenger and content move left
     $("#content").animate({left: "36%"}, 500, "swing");
-    $("#passenger").animate({right: "61%"}, 500, "swing");
+    //$("#passenger").animate({right: "61%"}, 500, "swing");
     //logo should move right, too
     $("#logo").animate({left: "83.3%"}, 500, "swing");
     $("#right_hover").show().delay(500).fadeOut(100);
@@ -349,7 +349,7 @@ $(document).ready(function(){
       $("#pistonL").animate({top: "-68%"}, 500, "swing");
       $("#pistonR").animate({top: "-68%"}, 500, "swing");
       //except passenger, which shifts down slightly
-      $("#passenger").animate({bottom: "-36px"}, 500, "swing");
+      //$("#passenger").animate({bottom: "-36px"}, 500, "swing");
       dashUp = true;
     }
   }
@@ -364,7 +364,7 @@ $(document).ready(function(){
       //logo acts like its pushing the dash down
       $("#logo").animate({top: "-5%"}, 625, "easeOutBack").animate({top: "-200px"}, 500, "swing");
       //passenger shifts up slightly
-      $("#passenger").animate({bottom: "-9px"}, 500, "swing");
+      //$("#passenger").animate({bottom: "-9px"}, 500, "swing");
       dashUp = false;
     }
   }
@@ -379,7 +379,7 @@ $(document).ready(function(){
   function toggleDash(){
     var toggleTime = 250;
     //move passenger down
-    $("#passenger").animate({bottom: "-36px"}, toggleTime, "swing");
+    //$("#passenger").animate({bottom: "-36px"}, toggleTime, "swing");
     //and dash up
     $("#dashboard").animate({top: "-68%"}, toggleTime, "swing");
     $("#pistonL").animate({top: "-68%"}, toggleTime, "swing");
@@ -399,7 +399,7 @@ $(document).ready(function(){
       //logo still pretends to push
       $("#logo").animate({top: "-5%"}, (toggleTime+120), "easeOutBack").animate({top: "-200px"}, 500, "swing");
       //passenger shifts up slightly
-      $("#passenger").animate({bottom: "-9px"}, toggleTime, "swing");
+      //$("#passenger").animate({bottom: "-9px"}, toggleTime, "swing");
     });
   }
 
