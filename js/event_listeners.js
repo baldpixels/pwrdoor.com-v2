@@ -10,7 +10,7 @@
   });
 
   //orientation change event (mobile)
-  $(window).on('orientationchange', function() {
+  $(window).on("orientationchange", function() {
     if (isPortrait()) {
       //portraitMode();
     }
@@ -31,26 +31,26 @@
     });
 
   //dash control events
-  $("#dashboard").on('click', '#left', leftClick);
-  $("#dashboard").on('click', '#right', rightClick);
-  $("#dashboard").on('click', '#brights', brightsClick);
-  $("#dashboard").on('click', '#hazard_up', hazardUpClick);
-  $("#dashboard").on('click', '#hazard_down', hazardDownClick);
+  $("#dashboard").on("click", "#left", leftClick);
+  $("#dashboard").on("click", "#right", rightClick);
+  $("#dashboard").on("click", "#brights", brightsClick);
+  $("#dashboard").on("click", "#hazard_up", hazardUpClick);
+  $("#dashboard").on("click", "#hazard_down", hazardDownClick);
 
   //content events
-  $("#dashboard").on('click', '#M', MClick);
-  $("#dashboard").on('click', '#G', GClick);
-  $("#dashboard").on('click', '#P', PClick);
-  $("#dashboard").on('click', '#C', CClick);
-  $("#dashboard").on('click', '#Q', QClick);
+  $("#dashboard").on("click", "#M", MClick);
+  $("#dashboard").on("click", "#G", GClick);
+  $("#dashboard").on("click", "#P", PClick);
+  $("#dashboard").on("click", "#C", CClick);
+  $("#dashboard").on("click", "#Q", QClick);
   //bring content forward if clicked and if dash is in front
-  $("#content").on('click', function(){
-    if($("#content").css("z-index")==2){
+  $("#content").on("click", function(){
+    if (!contentForward) {
       toggleDash();
     }
   });
 
   //fullScreen events
-  $("#content").on('click', '.photoFrame img', fullScreenPhoto);
-  $("#content").on('click', '.graphicCanvas img', fullScreenGraphic);
-  $("body").on('click', '#fullScreen', fullScreenOff);
+  $("#content").on("click", ".photoFrame img", fullScreenPhoto);
+  $("#content").on("click", ".graphicCanvas img", fullScreenGraphic);
+  $("body").on("click", "#fullScreen", fullScreenOff);

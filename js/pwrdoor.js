@@ -10,6 +10,8 @@
 
   //boolean so dash won't toggle before initial content is loaded
   var contentInit = false;
+  //boolean to keep track of content z-index
+  var contentForward = false;
 
   //port resize variables
   var portHeight,
@@ -48,19 +50,19 @@ $(document).ready(function(){
 
   function updateContentSize(){
     //check if content is visibile, then resize
-    if($("#content").is(":visible")){
+    if ($("#content").is(":visible")) {
       $("#content").css("width", $(window).width()*.66);
     } else{
       $("#content:hidden").css("width", $(window).width()*.66);
     }
     //check if movieScreen is visibile, then resize iframe
-    if($(".movieScreen").is(":visible")){
+    if ($(".movieScreen").is(":visible")) {
       $(".movieScreen iframe").css("height", $(window).width()*.281);
     } else{
       $(".movieScreen iframe:hidden").css("height", $(window).width()*.281);
     }
     //check if codeBox is visibile, then resize iframe
-    if($(".codeBox").is(":visible")){
+    if ($(".codeBox").is(":visible")) {
       $(".codeBox iframe").css("height", $(window).width()*.281);
     } else{
       $(".codeBox iframe:hidden").css("height", $(window).width()*.281);
@@ -78,9 +80,9 @@ $(document).ready(function(){
 
   function pwrClick(){
     //pwrClick gets things started
-    if(intro){
+    if (intro) {
       //move logo up
-      $("#logo").attr('src', "images/logo_hover.png");
+      $("#logo").attr("src", "images/logo_hover.png");
       $("#logo").animate({top: "-200px"}, 750, "swing", function(){
         introAnimation();
       });
@@ -90,7 +92,7 @@ $(document).ready(function(){
 
   function introAnimation(){
     //pull down dash
-    $("#logo").attr('src', "images/logo.png");
+    $("#logo").attr("src", "images/logo.png");
     $("#passenger").animate({bottom: "-9px"}, 625, "swing");
     $("#pistonL").animate({top: "0px"}, 625, "easeOutBack");
     $("#pistonR").animate({top: "0px"}, 625, "easeOutBack");
@@ -198,7 +200,7 @@ $(document).ready(function(){
       $("#caption"+i).hide().delay(500).fadeIn(500);
       $("#title"+i).hide().delay(500).fadeIn(500);
       //buffer at the bottom
-      if(i==0){
+      if (i === 0) {
         $("#content").append("<br>");
         $("#content").append("<br>");
         $("#content").append("<br>");
@@ -234,7 +236,7 @@ $(document).ready(function(){
               preload(index-1);
           });
           //buffer at the bottom
-          if(index==0){
+          if (index === 0) {
             $("#content").append("<br>");
             $("#content").append("<br>");
             $("#content").append("<br>");
@@ -271,7 +273,7 @@ $(document).ready(function(){
               preload(index-1);
           });
           //buffer at the bottom
-          if(index==0){
+          if (index === 0) {
             $("#content").append("<br>");
             $("#content").append("<br>");
             $("#content").append("<br>");
@@ -295,18 +297,18 @@ $(document).ready(function(){
     //append new content
     $("#content").append("<p id='contentHeader'>&lt;Code&gt;</p>");
     for(var i=codeLinks.length-1; i>=0; i--){
-      if(codeLinks[i][1]=='iframe'){
+      if (codeLinks[i][1] === "iframe") {
         $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
         $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i][0] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
         $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i][0]+"' target='_blank'>" + codeLinks[i][0] + "</a></p>");
       }
-      if(codeLinks[i][1]=='link'){
+      if (codeLinks[i][1] === "link") {
         $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i][0]+"' target='_blank'>" + codeLinks[i][0] + "</a></p>");
       }
       $("#code"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
       //buffer at the bottom
-      if(i==0){
+      if (i === 0) {
         $("#content").append("<br>");
         $("#content").append("<br>");
         $("#content").append("<br>");
@@ -323,12 +325,12 @@ $(document).ready(function(){
     //clear control hovers, but show Q_hover
     clearHovers();
     $("#Q_hover").show();
-    window.open('profiles.html','_blank');
+    window.open("profiles.html","_blank");
   }
 /*** end content functions ***/
 
   function hazardUpClick(){
-    if(!dashUp){
+    if (!dashUp) {
       //move dash up
       $("#hazard_up_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "-68%"}, 500, "swing");
@@ -341,7 +343,7 @@ $(document).ready(function(){
   }
 
   function hazardDownClick(){
-    if(dashUp){
+    if (dashUp) {
       //move dash down
       $("#hazard_down_hover").show().delay(500).fadeOut(100);
       $("#dashboard").animate({top: "0px"}, 500, "easeOutBack");
@@ -356,10 +358,10 @@ $(document).ready(function(){
   }
 
   function brightsClick(){
-    if(contentInit){
+    if (contentInit) {
       toggleDash();
     }
-    $("#brights_hover").show().delay(500).fadeOut(333);
+    $("#brights_hover").show().delay(500).fadeOut(500);
   }
 
   function toggleDash(){
@@ -371,10 +373,12 @@ $(document).ready(function(){
     $("#pistonL").animate({top: "-68%"}, toggleTime, "swing");
     $("#pistonR").animate({top: "-68%"}, toggleTime, "swing", function(){
       //toggle content's z-index
-      if($("#content").css("z-index")===6){
+      if (contentForward) {
         $("#content").css("z-index", "+2");
+        contentForward = false;
       } else{
         $("#content").css("z-index", "+6");
+        contentForward = true;
       }
       //move dash back down
       $("#dashboard").animate({top: "0px"}, toggleTime, "easeOutBack");
@@ -399,11 +403,11 @@ $(document).ready(function(){
   }
 
   function fullScreenPhoto(){
-    var photoSrc = $(this).attr('src');
+    var photoSrc = $(this).attr("src");
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", photoSrc)
     //center img if its width is less than the window width
-    if($(window).width() < $("#fullScreen img").width()){
+    if ($(window).width() < $("#fullScreen img").width()) {
       $("#fullScreen img").css("left", 0);
     } else {
       var leftShift = ($(window).width() - $("#fullScreen img").width())*.5;
@@ -414,11 +418,11 @@ $(document).ready(function(){
   }
 
   function fullScreenGraphic(){
-    var graphicSrc = $(this).attr('src');
+    var graphicSrc = $(this).attr("src");
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", graphicSrc)
     //center img if its width is less than the window width
-    if($(window).width() < $("#fullScreen img").width()){
+    if ($(window).width() < $("#fullScreen img").width()) {
       $("#fullScreen img").css("left", 0);
     } else {
       var leftShift = ($(window).width() - $("#fullScreen img").width())*.5;
@@ -437,7 +441,7 @@ $(document).ready(function(){
   function fullScreenExitTip(){
     //appends fullScreenExitTip toward the bottom of the fullScreen
     //first, check if fullScreenExitTip has already been appended once
-    if(!$("#fullScreen").find("#fullScreenExitTip").length){
+    if (!$("#fullScreen").find("#fullScreenExitTip").length) {
       $("#fullScreen").append("<p id='fullScreenExitTip'>(click image to return)</p>");
       $("#fullScreen").hide();
     } else{
