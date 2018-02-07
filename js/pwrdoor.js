@@ -186,7 +186,10 @@ $(document).ready(function(){
     //clear control hovers, but show M_hover
     clearHovers();
     $("#M_hover").show();
-    toggleDash();
+    //toggle dash if content is not already in front
+    if(!contentForward){
+      toggleDash();
+    }
     $("#brights_hover").fadeOut(333);
     contentInit = true;
     //append new content
@@ -217,7 +220,10 @@ $(document).ready(function(){
     //clear control hovers, but show G_hover
     clearHovers();
     $("#G_hover").show();
-    toggleDash();
+    //toggle dash if content is not already in front
+    if(!contentForward){
+      toggleDash();
+    }
     $("#brights_hover").fadeOut(333);
     contentInit = true;
     $("#content").append("<p id='contentHeader'>Graphics</p>");
@@ -254,7 +260,10 @@ $(document).ready(function(){
     //clear control hovers, but show P_hover
     clearHovers();
     $("#P_hover").show();
-    toggleDash();
+    //toggle dash if content is not already in front
+    if(!contentForward){
+      toggleDash();
+    }
     $("#brights_hover").fadeOut(333);
     contentInit = true;
     $("#content").append("<p id='contentHeader'>Photos</p>");
@@ -291,7 +300,10 @@ $(document).ready(function(){
     //clear control hovers, but show C_hover
     clearHovers();
     $("#C_hover").show();
-    toggleDash();
+    //toggle dash if content is not already in front
+    if(!contentForward){
+      toggleDash();
+    }
     $("#brights_hover").fadeOut(333);
     contentInit = true;
     //append new content

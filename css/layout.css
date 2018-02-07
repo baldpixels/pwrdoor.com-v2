@@ -27,7 +27,7 @@ body {
   overflow: scroll;
 }
 
-#fullScreen img{
+#fullScreen img {
   position: absolute;
   top: 8.2%;
   left: 0;
@@ -85,7 +85,7 @@ body {
   height: 69.7%;
   transform: translate(-50%, 0);
   overflow-y: scroll;
-  overflow-x: scroll;
+  overflow-x: visible;
   scrollbar-base-color: #140517;
   scrollbar-face-color: #00cc00;
   scrollbar-3dlight-color: #00cc00;
@@ -120,7 +120,7 @@ body {
 }
 
 #contentHeader {
-  width: 95%;
+  width: 90%;
   border: 5px solid rgba(0, 0, 0, .8);
   border-radius: 30px 30px 0 0;
   padding: 5px;
@@ -137,7 +137,7 @@ body {
 #fullScreenTip {
   position: relative;
   top: -30px;
-  width: 95%;
+  width: 90%;
   margin: 0;
   padding: 5px;
   border: 5px solid rgba(0, 0, 0, .8);
@@ -151,7 +151,7 @@ body {
 }
 
 .movieScreen {
-  width: 95%;
+  width: 90%;
   border: 5px solid rgba(0, 0, 0, .6);
   padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
@@ -166,7 +166,7 @@ body {
 }
 
 .movieCaption, .graphicCaption, .photoCaption, .codeCaption {
-  width: 95%;
+  width: 90%;
   border: 5px solid rgba(0, 0, 0, .6);
   border-radius: 0 0 30px 30px;
   padding: 15px 5px 15px 5px;
@@ -183,10 +183,10 @@ body {
 }
 
 .movieTitle, .graphicTitle, .photoTitle, .codeTitle {
-  width: 95%;
+  width: 90%;
   border: 5px solid rgba(0, 0, 0, .6);
   border-radius: 30px 30px 0 0;
-  padding: 5px 5px 5px 15px;
+  padding: 5px 0px 5px 10px;
   background-color: rgba(0, 0, 0, .8);
   font-size: 32px;
   color: #e6e6e6;
@@ -197,7 +197,7 @@ body {
 }
 
 .graphicCanvas {
-  width: 95%;
+  width: 90%;
   border: 5px solid rgba(0, 0, 0, .6);
   padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
@@ -211,7 +211,7 @@ body {
 }
 
 .photoFrame {
-  width: 95%;
+  width: 90%;
   border: 5px solid rgba(0, 0, 0, .6);
   padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
@@ -225,7 +225,7 @@ body {
 }
 
 .codeBox {
-  width: 95%;
+  width: 90%;
   border: 5px solid rgba(0, 0, 0, .6);
   padding: 15px 5px 15px 5px;
   background-color: rgba(0, 0, 0, .8);
