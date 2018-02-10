@@ -3,7 +3,7 @@
 
 //variables
 
-  $(document).ready(function(){
+  $(document).ready(function() {
   //local
 
   //variables
@@ -21,12 +21,12 @@
     });
 
   //functions
-    function updatePort(){
+    function updatePort() {
       portWidth = .5625*portHeight;
       $("#port").css("width", portWidth + "px");
     }
 
-    function connor(){
+    function connor() {
       $("#port").append("<img id='connor' src='images/connor.png' alt='' />");
       $("#content").append("<p class='statement'>Thanks for taking a look at my website.</p>");
       $("#content").append("<p class='statement'>I built the whole thing from scratch, and if you're curious, <a href='https://github.com/baldpixels/baldpixels.github.io' target='_blank'>here's all the code</a>.</p>");
@@ -43,7 +43,7 @@
       letter();
     }
 
-    function letter(){
+    function letter() {
 
     }
 

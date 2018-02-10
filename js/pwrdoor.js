@@ -17,7 +17,7 @@
   var portHeight,
     portWidth;
 
-$(document).ready(function(){
+$(document).ready(function() {
 //local
 
 /***** on document load *****/
@@ -36,19 +36,19 @@ $(document).ready(function(){
 });
 
 /***** functions *****/
-  function updateDebug(){
+  function updateDebug() {
     $("#debug").html("<p>debug</p>");
   }
 
 /*** resizing functions ***/
-  function updatePortSize(){
+  function updatePortSize() {
     portHeight = $("#port").height();
     //portWidth is calculated based on portHeight (i.e. window height)
     portWidth = .5625*portHeight;
     $("#port").css("width", portWidth + "px");
   }
 
-  function updateContentSize(){
+  function updateContentSize() {
     //check if content is visibile, then resize
     if ($("#content").is(":visible")) {
       $("#content").css("width", $(window).width()*.66);
@@ -78,7 +78,7 @@ $(document).ready(function(){
   }
 /*** end resizing functions ***/
 
-  function pwrClick(){
+  function pwrClick() {
     //pwrClick gets things started
     if (intro) {
       //move logo up
@@ -171,7 +171,7 @@ $(document).ready(function(){
     $("#content").fadeIn(750);
   }
 
-  function leftClick(){
+  function leftClick() {
     //dash moves left
     $("#dashboard").animate({left: "-36%"}, 500, "swing");
     $("#pistonL").animate({right: "131%"}, 500, "swing");
@@ -184,7 +184,7 @@ $(document).ready(function(){
     $("#left_hover").show().delay(500).fadeOut(100);
   }
 
-  function rightClick(){
+  function rightClick() {
     //dash moves right
     $("#dashboard").animate({left: "33%"}, 500, "swing");
     $("#pistonL").animate({right: "61%"}, 500, "swing");
@@ -199,7 +199,7 @@ $(document).ready(function(){
 
 /*** content functions ***/
   //MOVIES
-  function MClick(){
+  function MClick() {
     //clear content box for new content
     clearContent();
     //clear control hovers, but show M_hover
@@ -233,7 +233,7 @@ $(document).ready(function(){
   }
 
   //GRAPHICS
-  function GClick(){
+  function GClick() {
     //clear content box for new content
     clearContent();
     //clear control hovers, but show G_hover
@@ -273,7 +273,7 @@ $(document).ready(function(){
   }
 
   //PHOTOS
-  function PClick(){
+  function PClick() {
     //clear content box for new content
     clearContent();
     //clear control hovers, but show P_hover
@@ -313,7 +313,7 @@ $(document).ready(function(){
   }
 
   //CODE
-  function CClick(){
+  function CClick() {
     //clear content box for new content
     clearContent();
     //clear control hovers, but show C_hover
@@ -345,7 +345,7 @@ $(document).ready(function(){
   }
 
   //PROFILES
-  function QClick(){
+  function QClick() {
     //clear content box for new content
     clearContent();
     //clear control hovers, but show Q_hover
@@ -355,7 +355,7 @@ $(document).ready(function(){
   }
 /*** end content functions ***/
 
-  function hazardUpClick(){
+  function hazardUpClick() {
     if (!dashUp) {
       //move dash up
       $("#hazard_up_hover").show().delay(500).fadeOut(100);
@@ -368,7 +368,7 @@ $(document).ready(function(){
     }
   }
 
-  function hazardDownClick(){
+  function hazardDownClick() {
     if (dashUp) {
       //move dash down
       $("#hazard_down_hover").show().delay(500).fadeOut(100);
@@ -383,7 +383,7 @@ $(document).ready(function(){
     }
   }
 
-  function brightsClick(){
+  function brightsClick() {
     if (contentInit) {
       toggleDash();
     }
@@ -417,12 +417,12 @@ $(document).ready(function(){
     });
   }
 
-  function passengerText(text){
+  function passengerText(text) {
     //passenger talks to you
   }
 
 /*** fullScreen functions ***/
-  function fullScreenTip(){
+  function fullScreenTip() {
     //appends fullScreenTip right below the contentHeader
     $("#content").append("<p id='fullScreenTip'>(click image for fullscreen)</p>");
     $("#fullScreenTip").hide().delay(250).fadeIn(500).fadeOut(500).fadeIn(500).fadeOut(500).fadeIn(500).delay(3000).fadeOut(1000);
@@ -443,7 +443,7 @@ $(document).ready(function(){
     $("#fullScreen").animate({top: "0px"}, 500, "swing");
   }
 
-  function fullScreenGraphic(){
+  function fullScreenGraphic() {
     var graphicSrc = $(this).attr("src");
     $("#fullScreen").fadeIn(500);
     $("#fullScreen img").attr("src", graphicSrc)
@@ -458,13 +458,13 @@ $(document).ready(function(){
     $("#fullScreen").animate({top: "0px"}, 500, "swing");
   }
 
-  function fullScreenOff(){
+  function fullScreenOff() {
     $("#fullScreen").animate({top: "-100%"}, 500, "swing");
     $("#fullScreen").fadeOut(500);
     $("#fullScreenExitTip").fadeOut(500);
   }
 
-  function fullScreenExitTip(){
+  function fullScreenExitTip() {
     //appends fullScreenExitTip toward the bottom of the fullScreen
     //first, check if fullScreenExitTip has already been appended once
     if (!$("#fullScreen").find("#fullScreenExitTip").length) {
@@ -476,7 +476,7 @@ $(document).ready(function(){
   }
 /*** end fullScreen functions ***/
 
-  function clearHovers(){
+  function clearHovers() {
     $("#M_hover").hide();
     $("#G_hover").hide();
     $("#P_hover").hide();
@@ -484,6 +484,6 @@ $(document).ready(function(){
     $("#Q_hover").hide();
   }
 
-  function clearContent(){
+  function clearContent() {
     $("#content").html("");
   }
