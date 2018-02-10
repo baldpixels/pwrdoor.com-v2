@@ -90,7 +90,7 @@ $(document).ready(function(){
     }
   }
 
-  function introAnimation(){
+  function introAnimation() {
     //pull down dash
     $("#logo").attr("src", "images/logo.png");
     //$("#passenger").animate({bottom: "-9px"}, 625, "swing");
@@ -141,16 +141,35 @@ $(document).ready(function(){
       $("#C_hover").hide();
       $("#Q_hover").hide();
       $("#hazard_down_hover").hide();
-      //blink animation
-      setTimeout(function(){
-        var blinkTime = 150;
-        $("#right_hover").fadeIn(blinkTime).delay(100).fadeOut(blinkTime).delay(100).fadeIn(blinkTime).delay(100).fadeOut(blinkTime);
-        $("#left_hover").fadeIn(blinkTime).delay(100).fadeOut(blinkTime).delay(100).fadeIn(blinkTime).delay(100).fadeOut(blinkTime);
-        $("#content").fadeIn(750);
-      }, 750);
+      //hide nav for smoother fade-in
+      $("#M").hide();
+      $("#G").hide();
+      $("#P").hide();
+      $("#C").hide();
+      $("#Q").hide();
+      //nav fade-in
+      var fadeInTime = 50;
+      $("#M").fadeIn(fadeInTime, function(){
+        $("#G").fadeIn(fadeInTime, function(){
+          $("#P").fadeIn(fadeInTime, function(){
+            $("#C").fadeIn(fadeInTime, function(){
+              $("#Q").fadeIn(fadeInTime, function(){
+                blinkAnimation();
+              });
+            });
+          });
+        });
+      });
     });
   }
   //end introAnimation
+
+  function blinkAnimation() {
+    var blinkTime = 150;
+    $("#right_hover").fadeIn(blinkTime).delay(100).fadeOut(blinkTime).delay(100).fadeIn(blinkTime).delay(100).fadeOut(blinkTime);
+    $("#left_hover").fadeIn(blinkTime).delay(100).fadeOut(blinkTime).delay(100).fadeIn(blinkTime).delay(100).fadeOut(blinkTime);
+    $("#content").fadeIn(750);
+  }
 
   function leftClick(){
     //dash moves left
@@ -309,14 +328,9 @@ $(document).ready(function(){
     //append new content
     $("#content").append("<p id='contentHeader'>&lt;Code&gt;</p>");
     for(var i=codeLinks.length-1; i>=0; i--){
-      if (codeLinks[i][1] === "iframe") {
-        $("#content").append("<div class='codeBox' id='codeBox"+i+"'></div>");
-        $("#codeBox"+i).append("<iframe id='code" + i + "' src='" + codeLinks[i][0] + "' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-        $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i][0]+"' target='_blank'>" + codeLinks[i][0] + "</a></p>");
-      }
-      if (codeLinks[i][1] === "link") {
-        $("#content").append("<p class='codeCaption' id='caption" + i + "'><a href='"+codeLinks[i][0]+"' target='_blank'>" + codeLinks[i][0] + "</a></p>");
-      }
+      $("#content").append("<p class='codeTitle' id='title" + i + "'><a href='" + codeLinks[i][1] + "' target='_blank'>" + codeLinks[i][2] + "</a></p>");
+      $("#content").append("<p class='codeCaption' id='caption" + i + "'>" + codeLinks[i][3] + "<br><br>View the code on <a href='"+codeLinks[i][0]+"' target='_blank'>github</a>.</p>");
+      $("#title"+i).hide().delay(500).fadeIn(500);
       $("#code"+i).hide().delay(500).fadeIn(500);
       $("#caption"+i).hide().delay(500).fadeIn(500);
       //buffer at the bottom

@@ -1,12 +1,18 @@
 "use strict";
 //global
 
+//[vimeo link, title, caption]
 var movieLinks = [
-  ['https://player.vimeo.com/video/173084329', 'What We Want', 'Part 1 of 2. I own literally none of this media.'],
-  ['https://player.vimeo.com/video/177589535', 'livin', 'Part 2 of 2. I own literally none of this media.'],
-  ['https://player.vimeo.com/video/214244680', 'Out of Place', 'A small adventure tale across the desert, mountains, and stars -- dedicated to the National Park Service'],
-  ['https://player.vimeo.com/video/251344926', 'Ventus', "Follow the wind and water of the Colorado Front Range. <br><br> Here's why Denver has some crazy weather patterns: <a href='http://www.theweatherprediction.com/weatherpapers/013/' target='_blank'>theweatherprediction.com/weatherpapers/013/</a> <br><br> Submitted to 'la semaine du son' video competition: <a href='https://www.facebook.com/concourslasemaineduson/?hc_ref=ARTjB8RYwLvBVbWxO-OkM3CA7oINdkD3TpJkexEVOIjjWrzObH7fEvdNWE1onDVnzV8&fref=nf&pnref=story' target='_blank'>facebook.com/concourslasemaineduson/</a>"],
-  ['https://player.vimeo.com/video/251346464', 'Fernweh', "Sometimes you think you're exactly where you want to be. <br><br> CMF Jury Award: <a href='https://www.campusmoviefest.com/movies/60033-fernweh' target='_blank'>campusmoviefest.com/movies/60033-fernweh</a>"],
+  ['https://player.vimeo.com/video/173084329', 'What We Want',
+    'Part 1 of 2. I own literally none of this media.'],
+  ['https://player.vimeo.com/video/177589535', 'livin',
+    'Part 2 of 2. I own literally none of this media.'],
+  ['https://player.vimeo.com/video/214244680', 'Out of Place',
+    'A small adventure tale across the desert, mountains, and stars -- dedicated to the National Park Service'],
+  ['https://player.vimeo.com/video/251344926', 'Ventus',
+    "Follow the wind and water of the Colorado Front Range. <br><br> Here's why Denver has some crazy weather patterns: <a href='http://www.theweatherprediction.com/weatherpapers/013/' target='_blank'>theweatherprediction.com/weatherpapers/013/</a> <br><br> Submitted to 'la semaine du son' video competition: <a href='https://www.facebook.com/concourslasemaineduson/?hc_ref=ARTjB8RYwLvBVbWxO-OkM3CA7oINdkD3TpJkexEVOIjjWrzObH7fEvdNWE1onDVnzV8&fref=nf&pnref=story' target='_blank'>facebook.com/concourslasemaineduson/</a>"],
+  ['https://player.vimeo.com/video/251346464', 'Fernweh',
+    "Sometimes you think you're exactly where you want to be. <br><br> CMF Jury Award: <a href='https://www.campusmoviefest.com/movies/60033-fernweh' target='_blank'>campusmoviefest.com/movies/60033-fernweh</a>"],
 ];
 
 var graphicLinks = [
@@ -68,8 +74,12 @@ var photoLinks = [
   'ice_1.jpg'
 ];
 
+//[git link, demo link, title, description]
 var codeLinks = [
-  ['http://www.pwrdoor.com', 'link'],
-  ['http://github.com/baldpixels', 'link'],
-  ['https://bitbucket.org/baldpixels/', 'link']
+  ['https://github.com/baldpixels/stallit', 'https://baldpixels.github.io/stallit', "stall'it",
+    'a social network for simultaneous public toilet users'],
+  ['https://github.com/baldpixels/ComEd_dashboard', 'https://baldpixels.github.io/ComEd_dashboard', 'Night & Day',
+    'Web Dashboard designed for ComEd Solar via MindSumo'],
+  ['https://github.com/baldpixels/baldpixels.github.io', 'https://baldpixels.github.io', 'PWRDOOR.com',
+    'the housing of PWRDOOR media']
 ];
