@@ -154,7 +154,7 @@ $(document).ready(function() {
           $("#P").fadeIn(fadeInTime, function(){
             $("#C").fadeIn(fadeInTime, function(){
               $("#Q").fadeIn(fadeInTime, function(){
-                $("#Q").load(blinkAnimation());
+                blinkAnimation();
               });
             });
           });
