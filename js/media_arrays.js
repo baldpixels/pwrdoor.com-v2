@@ -80,6 +80,8 @@ var codeLinks = [
     'a social network for simultaneous public toilet users'],
   ['https://github.com/baldpixels/ComEd_dashboard', 'https://baldpixels.github.io/ComEd_dashboard', 'Night & Day',
     'Web Dashboard designed for ComEd Solar via MindSumo'],
+  ['https://github.com/baldpixels/calenday', 'http://ec2-18-218-230-146.us-east-2.compute.amazonaws.com/~connor330/module_5/calenday/calenday.html', 'Calenday',
+    'a simple AJAX calendar web-app'],
   ['https://github.com/baldpixels/baldpixels.github.io', 'https://baldpixels.github.io', 'PWRDOOR.com',
     'the housing of PWRDOOR media']
 ];
