@@ -255,3 +255,21 @@ body {
   color: red;
   font-size: 10px;
 }
+
+#fl_link {
+  z-index: +3;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#fl_link a {
+  font-family: 'Rubik', sans-serif;
+  font-size: 12px;
+  color: #00cc00;
+}
+
+#fl_link a:hover {
+  color: #00ff00;
+}

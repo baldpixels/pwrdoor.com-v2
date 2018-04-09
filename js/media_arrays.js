@@ -46,7 +46,8 @@ var graphicLinks = [
   'still_life.jpg',
   'suburbs_mockup.jpg',
   'suburbs.jpg',
-  'mauna_kea_moonrise.gif'
+  'mauna_kea_moonrise.gif',
+  'yonni16.png'
 ];
 
 var photoLinks = [
