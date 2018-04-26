@@ -32,9 +32,9 @@ body {
   z-index: +2;
   position: absolute;
   left: -16.6px;
-  top: 66%;
+  top: 50%;
   width: 95%;
-  height: 33%;
+  height: 50%;
   padding: 0 33px 0 33px;
   overflow-y: scroll;
   overflow-x: visible;
@@ -74,9 +74,11 @@ body {
 #connor {
   z-index: +3;
   position: absolute;
+  top: 36px;
   right: 50%;
   transform: translate(+50%, 0);
-  height: 65%;
+  width: 66%;
+  border-radius: 50%;
 }
 
 .statement {
